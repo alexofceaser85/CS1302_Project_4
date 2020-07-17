@@ -21,7 +21,6 @@ public class ReadWeatherFile {
 	private static final String THE_FILE_NAME = "WeatherData.txt";
 	private static final String THE_FILE_NOT_FOUND_WARNING = "The file was not found";
 	
-	private ArrayList<WeatherForADay> theDailyWeather;
 	private File theFile;
 	private Scanner inFile;
 	
@@ -34,7 +33,6 @@ public class ReadWeatherFile {
 	
 	public ReadWeatherFile() {
 		try {
-			this.theDailyWeather = new ArrayList<WeatherForADay>();
 			this.theFile = new File(THE_FILE_NAME);
 			this.inFile = new Scanner(this.theFile);
 			
