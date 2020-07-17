@@ -21,6 +21,7 @@ class TestAddWeatherDay {
 		});
 	}
 	
+	@Test
 	public void shouldAddWeatherDayToEmptyManager() {
 		
 		WeatherManager theManager = new WeatherManager();
@@ -28,10 +29,11 @@ class TestAddWeatherDay {
 		
 		theManager.addWeatherDay(theDaysWeather);
 		
-		assertEquals("USC00091640 at the location: CARROLLTON GA US with the maximum temperature of: 92.0 with the minimum temperature of: 68.0"
+		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: CARROLLTON, GA US with the maximum temperature of: 92.0 with the minimum temperature of: 68.0"
 				+ System.lineSeparator(), theManager.toString());
 	}
 	
+	@Test
 	public void shouldAddMultipleWeatherDays() {
 		
 		WeatherManager theManager = new WeatherManager();
@@ -43,9 +45,9 @@ class TestAddWeatherDay {
 		theManager.addWeatherDay(theSecondDaysWeather);
 		theManager.addWeatherDay(theThirdDaysWeather);
 		
-		assertEquals("USC00091640 at the location: CARROLLTON GA US with the maximum temperature of: 92.0 with the minimum temperature of: 68.0"
-				+ System.lineSeparator() + "USC00091640 at the location: CARROLLTON GA US with the maximum temperature of: 90.0 with the minimum temperature of: 71.0"
-				+ System.lineSeparator() + "USC00091640 at the location: CARROLLTON GA US with the maximum temperature of: 85.0 with the minimum temperature of: 40.0"
+		assertEquals("The day: 2020-07-03 at the station: USC00091640 at the location: CARROLLTON, GA US with the maximum temperature of: 85.0 with the minimum temperature of: 40.0"
+				+ System.lineSeparator() + "The day: 2020-07-01 at the station: USC00091640 at the location: CARROLLTON, GA US with the maximum temperature of: 92.0 with the minimum temperature of: 68.0"
+				+ System.lineSeparator() + "The day: 2020-07-02 at the station: USC00091640 at the location: CARROLLTON, GA US with the maximum temperature of: 90.0 with the minimum temperature of: 71.0"
 				+ System.lineSeparator(), theManager.toString());
 	}
 
