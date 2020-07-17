@@ -55,9 +55,11 @@ public class WeatherManager {
 	 * @postcondition none
 	 * 
 	 * @param dateToFind the date to find in the hash map
+	 * 
+	 * @return The weather for a given day 
 	 */
 	
-	public void getWeatherForADay(String dateToFind) {
+	public WeatherForADay getWeatherForADay(String dateToFind) {
 		
 		if (dateToFind == null) {
 			throw new IllegalArgumentException(ErrorMessages.THE_DATE_TO_FIND_CANNOT_BE_NULL);
@@ -66,7 +68,7 @@ public class WeatherManager {
 			throw new IllegalArgumentException(ErrorMessages.THE_DATE_TO_FIND_CANNOT_BE_EMPTY);
 		}
 		
-		this.theDailyWeather.get(dateToFind);
+		return this.theDailyWeather.get(dateToFind);
 	}
 	
 	/**
