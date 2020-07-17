@@ -15,5 +15,5 @@ public class ErrorMessages {
 	public static final String LOCATION_CANNOT_BE_EMPTY = "The location cannot be empty";
 	public static final String DATE_CANNOT_BE_NULL = "The date cannot be null";
 	public static final String DATE_CANNOT_BE_EMPTY = "The date cannot be empty";
-
+	public static final String MINIMUM_TEMPERATURE_CANNOT_BE_MORE_THAN_MAXIMUM_TEMPERATURE = "Cannot set the minimum temperature to more than the maximum temperature";
 }

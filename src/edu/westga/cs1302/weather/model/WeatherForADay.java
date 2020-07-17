@@ -20,7 +20,7 @@ public class WeatherForADay {
 	/**
 	 * The constructor for the weather for a day
 	 * 
-	 * @precondition station != null && station.isEmpty() == false && locationName != null && locationName.isEmpty() == false && date != null && date.isEmpty() == false
+	 * @precondition station != null && station.isEmpty() == false && locationName != null && locationName.isEmpty() == false && date != null && date.isEmpty() == false && minimumTemperature < maximumTemperature
 	 * @postcondition station == getStation() && locationName == getLocationName() && date == getDate() && maximumTemperature == getMaximumTemperature() minimumTemperature == getMinimumTemperature()
 	 * 
 	 * @param station the station of the weather
@@ -49,6 +49,9 @@ public class WeatherForADay {
 		}
 		if (date.isEmpty()) {
 			throw new IllegalArgumentException(ErrorMessages.DATE_CANNOT_BE_EMPTY);
+		}
+		if (minimumTemperature > maximumTemperature) {
+			throw new IllegalArgumentException(ErrorMessages.MINIMUM_TEMPERATURE_CANNOT_BE_MORE_THAN_MAXIMUM_TEMPERATURE);
 		}
 		
 		this.theStation = station;
