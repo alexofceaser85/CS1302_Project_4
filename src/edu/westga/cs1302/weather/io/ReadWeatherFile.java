@@ -41,5 +41,18 @@ public class ReadWeatherFile {
 			theAlert.setContentText(THE_FILE_NOT_FOUND_WARNING);
 		}
 	}
+	
+	/**
+	 * Gets the in file scanner
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return the in file scanner
+	 */
+	
+	public Scanner getInFileScanner() {
+		return this.inFile;
+	}
 
 }
