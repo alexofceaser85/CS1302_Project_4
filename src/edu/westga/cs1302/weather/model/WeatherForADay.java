@@ -135,7 +135,7 @@ public class WeatherForADay {
 	
 	@Override
 	public String toString() { 
-		return "The day: " + this.getTheDate() + " at the station: " + this.getTheStation() + " at the location: " + this.getTheLocationName() + " with the maximum temperature of: " + this.getTheMaximumTemperature() + " with the minimum temperature of: " + this.getTheMinimumTemperature();
+		return "The day: " + this.getTheDate() + " at the station: " + this.getTheStation() + " at the location: " + this.getTheLocationName() + " taken on: " + this.getTheDate() + " with the maximum temperature of: " + this.getTheMaximumTemperature() + " with the minimum temperature of: " + this.getTheMinimumTemperature();
 	}
 
 }
