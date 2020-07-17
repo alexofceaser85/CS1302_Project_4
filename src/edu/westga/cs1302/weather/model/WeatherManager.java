@@ -85,7 +85,7 @@ public class WeatherManager {
 		
 		for (Map.Entry<String, WeatherForADay> current : this.theDailyWeather.entrySet()) {
 			
-			description += current.toString() + System.lineSeparator();
+			description += current.getValue().toString() + System.lineSeparator();
 			
 		}
 		
