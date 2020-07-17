@@ -101,7 +101,7 @@ class TestWeatherForADayConstructor {
 		
 		WeatherForADay testWeather = new WeatherForADay("USC00091640", "CARROLLTON GA US", "2020-07-01", 92, 68); 
 		
-		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: CARROLLTON GA US taken on: 2020-07-01 with the maximum temperature of: 92.0 with the minimum temperature of: 68.0", testWeather.toString());
+		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: CARROLLTON GA US with the maximum temperature of: 92.0 with the minimum temperature of: 68.0", testWeather.toString());
 	}
 	
 	@Test
@@ -109,7 +109,7 @@ class TestWeatherForADayConstructor {
 		
 		WeatherForADay testWeather = new WeatherForADay("usc00091640", "CARROLLTON GA US", "2020-07-01", 92, 68); 
 		
-		assertEquals("The day: 2020-07-01 at the station: usc00091640 at the location: CARROLLTON GA US taken on: 2020-07-01 with the maximum temperature of: 92.0 with the minimum temperature of: 68.0", testWeather.toString());
+		assertEquals("The day: 2020-07-01 at the station: usc00091640 at the location: CARROLLTON GA US with the maximum temperature of: 92.0 with the minimum temperature of: 68.0", testWeather.toString());
 	}
 	
 	@Test
@@ -117,7 +117,7 @@ class TestWeatherForADayConstructor {
 		
 		WeatherForADay testWeather = new WeatherForADay("uSC00091640", "CARROLLTON GA US", "2020-07-01", 92, 68); 
 		
-		assertEquals("The day: 2020-07-01 at the station: uSC00091640 at the location: CARROLLTON GA US taken on: 2020-07-01 with the maximum temperature of: 92.0 with the minimum temperature of: 68.0", testWeather.toString());
+		assertEquals("The day: 2020-07-01 at the station: uSC00091640 at the location: CARROLLTON GA US with the maximum temperature of: 92.0 with the minimum temperature of: 68.0", testWeather.toString());
 	}
 	
 	@Test
@@ -125,7 +125,7 @@ class TestWeatherForADayConstructor {
 		
 		WeatherForADay testWeather = new WeatherForADay("USC00091640", "CARROLLTON GA US", "2020-07-01", 92, 68); 
 		
-		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: CARROLLTON GA US taken on: 2020-07-01 with the maximum temperature of: 92.0 with the minimum temperature of: 68.0", testWeather.toString());
+		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: CARROLLTON GA US with the maximum temperature of: 92.0 with the minimum temperature of: 68.0", testWeather.toString());
 	}
 	
 	@Test
@@ -133,7 +133,7 @@ class TestWeatherForADayConstructor {
 		
 		WeatherForADay testWeather = new WeatherForADay("USC00091640", "carrollton ga us", "2020-07-01", 92, 68); 
 		
-		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: carrollton ga us taken on: 2020-07-01 with the maximum temperature of: 92.0 with the minimum temperature of: 68.0", testWeather.toString());
+		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: carrollton ga us with the maximum temperature of: 92.0 with the minimum temperature of: 68.0", testWeather.toString());
 	}
 	
 	@Test
@@ -141,7 +141,7 @@ class TestWeatherForADayConstructor {
 		
 		WeatherForADay testWeather = new WeatherForADay("USC00091640", "Carrollton GA US", "2020-07-01", 92, 68); 
 		
-		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US taken on: 2020-07-01 with the maximum temperature of: 92.0 with the minimum temperature of: 68.0", testWeather.toString());
+		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US with the maximum temperature of: 92.0 with the minimum temperature of: 68.0", testWeather.toString());
 	}
 	
 	@Test
@@ -149,7 +149,7 @@ class TestWeatherForADayConstructor {
 		
 		WeatherForADay testWeather = new WeatherForADay("USC00091640", "Carrollton GA US", "2020-07-01", 200, 68); 
 		
-		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US taken on: 2020-07-01 with the maximum temperature of: 200.0 with the minimum temperature of: 68.0", testWeather.toString());
+		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US with the maximum temperature of: 200.0 with the minimum temperature of: 68.0", testWeather.toString());
 		
 	}
 	
@@ -158,7 +158,7 @@ class TestWeatherForADayConstructor {
 		
 		WeatherForADay testWeather = new WeatherForADay("USC00091640", "Carrollton GA US", "2020-07-01", 1, 0); 
 		
-		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US taken on: 2020-07-01 with the maximum temperature of: 1.0 with the minimum temperature of: 0.0", testWeather.toString());
+		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US with the maximum temperature of: 1.0 with the minimum temperature of: 0.0", testWeather.toString());
 		
 	}
 	
@@ -167,7 +167,7 @@ class TestWeatherForADayConstructor {
 		
 		WeatherForADay testWeather = new WeatherForADay("USC00091640", "Carrollton GA US", "2020-07-01", .1, 0); 
 		
-		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US taken on: 2020-07-01 with the maximum temperature of: 0.1 with the minimum temperature of: 0.0", testWeather.toString());
+		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US with the maximum temperature of: 0.1 with the minimum temperature of: 0.0", testWeather.toString());
 		
 	}
 	
@@ -176,7 +176,7 @@ class TestWeatherForADayConstructor {
 		
 		WeatherForADay testWeather = new WeatherForADay("USC00091640", "Carrollton GA US", "2020-07-01", 0, -200); 
 		
-		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US taken on: 2020-07-01 with the maximum temperature of: 0.0 with the minimum temperature of: -200.0", testWeather.toString());
+		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US with the maximum temperature of: 0.0 with the minimum temperature of: -200.0", testWeather.toString());
 		
 	}
 	
@@ -185,7 +185,7 @@ class TestWeatherForADayConstructor {
 		
 		WeatherForADay testWeather = new WeatherForADay("USC00091640", "Carrollton GA US", "2020-07-01", -200, -201); 
 		
-		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US taken on: 2020-07-01 with the maximum temperature of: -200.0 with the minimum temperature of: -201.0", testWeather.toString());
+		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US with the maximum temperature of: -200.0 with the minimum temperature of: -201.0", testWeather.toString());
 		
 	}
 	
@@ -194,7 +194,7 @@ class TestWeatherForADayConstructor {
 		
 		WeatherForADay testWeather = new WeatherForADay("USC00091640", "Carrollton GA US", "2020-07-01", -1, -200); 
 		
-		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US taken on: 2020-07-01 with the maximum temperature of: -1.0 with the minimum temperature of: -200.0", testWeather.toString());
+		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US with the maximum temperature of: -1.0 with the minimum temperature of: -200.0", testWeather.toString());
 		
 	}
 	
@@ -203,7 +203,7 @@ class TestWeatherForADayConstructor {
 		
 		WeatherForADay testWeather = new WeatherForADay("USC00091640", "Carrollton GA US", "2020-07-01", -.1, -200); 
 		
-		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US taken on: 2020-07-01 with the maximum temperature of: -0.1 with the minimum temperature of: -200.0", testWeather.toString());
+		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US with the maximum temperature of: -0.1 with the minimum temperature of: -200.0", testWeather.toString());
 		
 	}
 	
@@ -214,7 +214,7 @@ class TestWeatherForADayConstructor {
 		
 		WeatherForADay testWeather = new WeatherForADay("USC00091640", "Carrollton GA US", "2020-07-01", 250, 200); 
 		
-		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US taken on: 2020-07-01 with the maximum temperature of: 250.0 with the minimum temperature of: 200.0", testWeather.toString());
+		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US with the maximum temperature of: 250.0 with the minimum temperature of: 200.0", testWeather.toString());
 		
 	}
 	
@@ -223,7 +223,7 @@ class TestWeatherForADayConstructor {
 		
 		WeatherForADay testWeather = new WeatherForADay("USC00091640", "Carrollton GA US", "2020-07-01", 1, 0); 
 		
-		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US taken on: 2020-07-01 with the maximum temperature of: 1.0 with the minimum temperature of: 0.0", testWeather.toString());
+		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US with the maximum temperature of: 1.0 with the minimum temperature of: 0.0", testWeather.toString());
 		
 	}
 	
@@ -232,7 +232,7 @@ class TestWeatherForADayConstructor {
 		
 		WeatherForADay testWeather = new WeatherForADay("USC00091640", "Carrollton GA US", "2020-07-01", .1, 0); 
 		
-		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US taken on: 2020-07-01 with the maximum temperature of: 0.1 with the minimum temperature of: 0.0", testWeather.toString());
+		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US with the maximum temperature of: 0.1 with the minimum temperature of: 0.0", testWeather.toString());
 		
 	}
 	
@@ -241,7 +241,7 @@ class TestWeatherForADayConstructor {
 		
 		WeatherForADay testWeather = new WeatherForADay("USC00091640", "Carrollton GA US", "2020-07-01", 1, 0); 
 		
-		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US taken on: 2020-07-01 with the maximum temperature of: 1.0 with the minimum temperature of: 0.0", testWeather.toString());
+		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US with the maximum temperature of: 1.0 with the minimum temperature of: 0.0", testWeather.toString());
 		
 	}
 	
@@ -250,7 +250,7 @@ class TestWeatherForADayConstructor {
 		
 		WeatherForADay testWeather = new WeatherForADay("USC00091640", "Carrollton GA US", "2020-07-01", -200, -250); 
 		
-		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US taken on: 2020-07-01 with the maximum temperature of: -200.0 with the minimum temperature of: -250.0", testWeather.toString());
+		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US with the maximum temperature of: -200.0 with the minimum temperature of: -250.0", testWeather.toString());
 		
 	}
 	
@@ -259,7 +259,7 @@ class TestWeatherForADayConstructor {
 		
 		WeatherForADay testWeather = new WeatherForADay("USC00091640", "Carrollton GA US", "2020-07-01", -200, -250); 
 		
-		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US taken on: 2020-07-01 with the maximum temperature of: -200.0 with the minimum temperature of: -250.0", testWeather.toString());
+		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US with the maximum temperature of: -200.0 with the minimum temperature of: -250.0", testWeather.toString());
 		
 	}
 	
@@ -268,7 +268,7 @@ class TestWeatherForADayConstructor {
 		
 		WeatherForADay testWeather = new WeatherForADay("USC00091640", "Carrollton GA US", "2020-07-01", 0, -.1); 
 		
-		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US taken on: 2020-07-01 with the maximum temperature of: 0.0 with the minimum temperature of: -0.1", testWeather.toString());
+		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US with the maximum temperature of: 0.0 with the minimum temperature of: -0.1", testWeather.toString());
 		
 	}
 
