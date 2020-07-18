@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import edu.westga.cs1302.weather.model.WeatherForADay;
 import edu.westga.cs1302.weather.model.WeatherManager;
 
-class TestGetWeatherDay {
+class TestGetWeatherForADay {
 
 	@Test
 	public void shouldNotFromNullKey() {
