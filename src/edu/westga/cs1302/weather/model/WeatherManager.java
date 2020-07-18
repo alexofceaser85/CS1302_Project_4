@@ -90,7 +90,7 @@ public class WeatherManager {
 	 * Gets the first day in the sorted array
 	 * 
 	 * @precondition none
-	 * @postconditon none
+	 * @postcondition none
 	 * 
 	 * @return the first day
 	 */
@@ -98,6 +98,22 @@ public class WeatherManager {
 	public WeatherForADay getTheFirstDay() {
 
 		return this.getTheSortedWeather().get(0);
+	}
+	
+	/**
+	 * Gets the middle day in the sorted array
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return the middle day
+	 */
+	
+	public WeatherForADay getTheMiddleDay() {
+		
+		int calculateMiddleIndex = Math.round((this.getTheSortedWeather().size()) / 2);
+		
+		return this.getTheSortedWeather().get(calculateMiddleIndex);
 	}
 	
 	/**
