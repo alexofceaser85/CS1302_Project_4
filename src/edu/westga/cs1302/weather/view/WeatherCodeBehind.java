@@ -60,6 +60,10 @@ public class WeatherCodeBehind {
 		
 		FileChooser theFileChooser = new FileChooser();
 		String theCurrentFilePath = Paths.get(".").toAbsolutePath().normalize().toString();
+		theFileChooser.getExtensionFilters().addAll(
+				new FileChooser.ExtensionFilter("All Files", "*"),
+				new FileChooser.ExtensionFilter("Only .txt Files", "*.txt")
+		);
 		
 		theFileChooser.setInitialDirectory(new File(theCurrentFilePath));
 		theFileChooser.showOpenDialog(stage);
