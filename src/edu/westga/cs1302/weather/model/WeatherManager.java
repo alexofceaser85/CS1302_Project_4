@@ -25,6 +25,7 @@ import edu.westga.cs1302.weather.errormessages.ErrorMessages;
 public class WeatherManager {
 	
 	private HashMap<String, WeatherForADay> theDailyWeather;
+	ArrayList<WeatherForADay> theSortedWeather;
 	
 	/**
 	 * The constructor for the weather manager
@@ -36,11 +37,12 @@ public class WeatherManager {
 	public WeatherManager() {
 		
 		this.theDailyWeather = new HashMap<String, WeatherForADay>();
+		this.theSortedWeather = new ArrayList<WeatherForADay>();
 
 	}
 	
 	/**
-	 * Adds to the daily weather hashmap
+	 * Adds to the daily weather
 	 * 
 	 * @precondition weatherToAdd != null
 	 * @postcondition none
@@ -82,36 +84,23 @@ public class WeatherManager {
 	}
 	
 	/**
+	 * Gets the weather data and sorts it
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return theSortedWeather the sorted weather array
 	 */
 	
-	public void getTheSortedWeather() {
-		
-		ArrayList<WeatherForADay> theSortedWeather = new ArrayList<WeatherForADay>();
-		
+	public ArrayList<WeatherForADay> getTheSortedWeather() {
+
 		for (Map.Entry<String, WeatherForADay> current : this.theDailyWeather.entrySet()) {
 			theSortedWeather.add(current.getValue());
 		}
 		
-		Collections.sort(theSortedWeather, new Comparator<WeatherForADay>() {
-			
-			private DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		this.sortTheArray(theSortedWeather);
 
-			@Override
-			public int compare(WeatherForADay o1, WeatherForADay o2) {
-				
-				String firstDate = o1.getTheDate();
-				String secondDate = o2.getTheDate();
-				
-				try {
-					return this.df.parse(firstDate).compareTo(this.df.parse(secondDate));
-				} catch (ParseException theParseException) {
-					System.out.println("I cannot");
-					return 0;
-				}
-			}
-			
-		});
-		System.out.println(theSortedWeather);
+		return theSortedWeather;
 	}
 	
 	/**
@@ -134,6 +123,28 @@ public class WeatherManager {
 		
 		return description;
 		
+	}
+	
+	private void sortTheArray(ArrayList<WeatherForADay> theSortedWeather) {
+		Collections.sort(theSortedWeather, new Comparator<WeatherForADay>() {
+			
+			private DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
+			@Override
+			public int compare(WeatherForADay o1, WeatherForADay o2) {
+				
+				String firstDate = o1.getTheDate();
+				String secondDate = o2.getTheDate();
+				
+				try {
+					return this.df.parse(firstDate).compareTo(this.df.parse(secondDate));
+				} catch (ParseException theParseException) {
+					System.out.println("I cannot");
+					return 0;
+				}
+			}
+			
+		});
 	}
 
 }
