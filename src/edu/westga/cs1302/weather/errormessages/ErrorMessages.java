@@ -20,4 +20,6 @@ public class ErrorMessages {
 	public static final String THE_WEATHER_FOR_A_DAY_CANNOT_BE_NULL = "The weather for a day to add to the manager cannot be null";
 	public static final String THE_DATE_TO_FIND_CANNOT_BE_NULL = "The date to find cannot be null";
 	public static final String THE_DATE_TO_FIND_CANNOT_BE_EMPTY = "The date to find cannot be empty";
+	
+	public static final String ALERT_THERE_WAS_AN_ERROR_PARSING_THE_DATE = "There was an error with the date";
 }

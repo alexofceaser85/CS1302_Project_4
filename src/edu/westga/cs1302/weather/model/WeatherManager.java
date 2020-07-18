@@ -14,6 +14,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import edu.westga.cs1302.weather.errormessages.ErrorMessages;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 /**
  * The class that holds the weather for each day
@@ -24,8 +26,8 @@ import edu.westga.cs1302.weather.errormessages.ErrorMessages;
 
 public class WeatherManager {
 	
-	private HashMap<String, WeatherForADay> theDailyWeather;
-	ArrayList<WeatherForADay> theSortedWeather;
+	private HashMap<String, WeatherForADay> theWeatherByDay;
+	private ArrayList<WeatherForADay> theSortedWeather;
 	
 	/**
 	 * The constructor for the weather manager
@@ -36,28 +38,9 @@ public class WeatherManager {
 	
 	public WeatherManager() {
 		
-		this.theDailyWeather = new HashMap<String, WeatherForADay>();
+		this.theWeatherByDay = new HashMap<String, WeatherForADay>();
 		this.theSortedWeather = new ArrayList<WeatherForADay>();
 
-	}
-	
-	/**
-	 * Adds to the daily weather
-	 * 
-	 * @precondition weatherToAdd != null
-	 * @postcondition none
-	 * 
-	 * @param weatherToAdd the weather for one day to add to the hashmap
-	 */
-	
-	public void addWeatherDay(WeatherForADay weatherToAdd) {
-		
-		if (weatherToAdd == null) {
-			throw new IllegalArgumentException(ErrorMessages.THE_WEATHER_FOR_A_DAY_CANNOT_BE_NULL);
-		}
-		
-		this.theDailyWeather.put(weatherToAdd.getTheDate(), weatherToAdd);
-		
 	}
 	
 	/**
@@ -80,11 +63,31 @@ public class WeatherManager {
 			throw new IllegalArgumentException(ErrorMessages.THE_DATE_TO_FIND_CANNOT_BE_EMPTY);
 		}
 		
-		return this.theDailyWeather.get(dateToFind);
+		return this.theWeatherByDay.get(dateToFind);
 	}
 	
 	/**
-	 * Gets the weather data and sorts it
+	 * Adds to the daily weather and sorts it
+	 * 
+	 * @precondition weatherToAdd != null
+	 * @postcondition none
+	 * 
+	 * @param weatherToAdd the weather for one day to add to the hashmap
+	 */
+	
+	public void addWeatherDay(WeatherForADay weatherToAdd) {
+		
+		if (weatherToAdd == null) {
+			throw new IllegalArgumentException(ErrorMessages.THE_WEATHER_FOR_A_DAY_CANNOT_BE_NULL);
+		}
+		
+		this.theSortedWeather.add(weatherToAdd);
+		this.sortTheArray(this.theSortedWeather);
+		this.getTheWeatherSortedByDay().put(weatherToAdd.getTheDate(), weatherToAdd);
+	}
+	
+	/**
+	 * Gets the weather data
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -93,14 +96,21 @@ public class WeatherManager {
 	 */
 	
 	public ArrayList<WeatherForADay> getTheSortedWeather() {
-
-		for (Map.Entry<String, WeatherForADay> current : this.theDailyWeather.entrySet()) {
-			theSortedWeather.add(current.getValue());
-		}
-		
-		this.sortTheArray(theSortedWeather);
-
-		return theSortedWeather;
+		return this.theSortedWeather;
+	}
+	
+	/**
+	 * Gets the weather sorted by day
+	 * @return 
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return the weather sorted by day
+	 */
+	
+	public HashMap<String, WeatherForADay> getTheWeatherSortedByDay() {
+		return this.theWeatherByDay;
 	}
 	
 	/**
@@ -115,7 +125,7 @@ public class WeatherManager {
 		
 		String description = "";
 		
-		for (Map.Entry<String, WeatherForADay> current : this.theDailyWeather.entrySet()) {
+		for (Map.Entry<String, WeatherForADay> current : this.theWeatherByDay.entrySet()) {
 			
 			description += current.getValue().toString() + System.lineSeparator();
 			
@@ -128,18 +138,20 @@ public class WeatherManager {
 	private void sortTheArray(ArrayList<WeatherForADay> theSortedWeather) {
 		Collections.sort(theSortedWeather, new Comparator<WeatherForADay>() {
 			
-			private DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+			private DateFormat theDecimalFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 			@Override
-			public int compare(WeatherForADay o1, WeatherForADay o2) {
-				
-				String firstDate = o1.getTheDate();
-				String secondDate = o2.getTheDate();
+			public int compare(WeatherForADay theFirstWeather, WeatherForADay theSecondWeather) {
 				
 				try {
-					return this.df.parse(firstDate).compareTo(this.df.parse(secondDate));
+					String firstDate = theFirstWeather.getTheDate();
+					String secondDate = theSecondWeather.getTheDate();
+					
+					return this.theDecimalFormat.parse(firstDate).compareTo(this.theDecimalFormat.parse(secondDate));
 				} catch (ParseException theParseException) {
-					System.out.println("I cannot");
+					Alert theAlert = new Alert(AlertType.ERROR);
+					theAlert.setContentText((ErrorMessages.ALERT_THERE_WAS_AN_ERROR_PARSING_THE_DATE));
+					theAlert.showAndWait();
 					return 0;
 				}
 			}
