@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import edu.westga.cs1302.weather.model.WeatherForADay;
+import edu.westga.cs1302.weather.model.WeatherManager;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
@@ -23,6 +24,7 @@ public class ReadWeatherFile {
 	
 	private File theFile;
 	private Scanner inFile;
+	private WeatherManager theWeatherManager;
 	
 	/**
 	 * The constructor for the read weather file class
@@ -35,6 +37,7 @@ public class ReadWeatherFile {
 		try {
 			this.theFile = new File(THE_FILE_NAME);
 			this.inFile = new Scanner(this.theFile);
+			this.theWeatherManager = new WeatherManager();
 			
 		} catch (FileNotFoundException theFileNotFoundException) {
 			Alert theAlert = new Alert(AlertType.WARNING);
