@@ -96,8 +96,10 @@ public class WeatherManager {
 	 */
 	
 	public WeatherForADay getTheFirstDay() {
+		
+		int firstIndex = 0;
 
-		return this.getTheSortedWeather().get(0);
+		return this.getTheSortedWeather().get(firstIndex);
 	}
 	
 	/**
@@ -111,9 +113,26 @@ public class WeatherManager {
 	
 	public WeatherForADay getTheMiddleDay() {
 		
-		int calculateMiddleIndex = Math.round((this.getTheSortedWeather().size()) / 2);
+		int middleIndex = Math.round((this.getTheSortedWeather().size()) / 2);
 		
-		return this.getTheSortedWeather().get(calculateMiddleIndex);
+		return this.getTheSortedWeather().get(middleIndex);
+	}
+	
+	/**
+	 * Gets the last day in the sorted array
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return the last day
+	 */
+	
+	public WeatherForADay getTheLastDay() {
+		
+		int lastIndex = this.getTheSortedWeather().size();
+		
+		return this.getTheSortedWeather().get(lastIndex);
+		
 	}
 	
 	/**
