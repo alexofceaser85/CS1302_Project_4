@@ -56,7 +56,7 @@ class TestGetTheMiddleDay {
 		WeatherForADay theFirstWeather = new WeatherForADay("USC00091640", "CARROLLTON GA US", "2020-08-01", 92, 68);
 		WeatherForADay theSecondWeather = new WeatherForADay("USC00091640", "CARROLLTON GA US", "2020-08-02", 80, 48);
 		WeatherForADay theThirdWeather = new WeatherForADay("USC00091640", "CARROLLTON GA US", "2020-08-03", 90, 70);
-		WeatherForADay theFourthWeather = new WeatherForADay("USC00091640", "CARROLLTON GA US", "2020-08-03", 75, 40);
+		WeatherForADay theFourthWeather = new WeatherForADay("USC00091640", "CARROLLTON GA US", "2020-08-04", 75, 40);
 		
 		theManager.addWeatherDay(theFirstWeather);
 		theManager.addWeatherDay(theSecondWeather);
