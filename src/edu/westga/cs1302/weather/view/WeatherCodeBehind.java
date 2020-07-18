@@ -3,9 +3,17 @@ package edu.westga.cs1302.weather.view;
 import java.io.File;
 import java.nio.file.Paths;
 
+import javax.swing.KeyStroke;
+
+import com.sun.glass.events.KeyEvent;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -46,6 +54,12 @@ public class WeatherCodeBehind {
 		
 	}
 	
+	@FXML
+	private void initialize() {
+		this.keyBindChooseFile();
+		this.keyBindExitProgram();
+	}
+	
 	/**
 	 * Chooses the file to parse and sets it to the projects file path
 	 * 
@@ -79,6 +93,20 @@ public class WeatherCodeBehind {
 	
 	public void exitTheApplication() {
 		System.exit(0);
+	}
+	
+	private void keyBindChooseFile() {
+		
+		this.buttonOpenFile.setMnemonicParsing(true);
+		KeyCodeCombination theKeyCodeCombination = new KeyCodeCombination(KeyCode.F, KeyCombination.ALT_DOWN);
+		this.buttonOpenFile.setAccelerator(theKeyCodeCombination);
+		
+	}
+	
+	private void keyBindExitProgram() {
+		this.buttonExit.setMnemonicParsing(true);
+		KeyCodeCombination theKeyCodeCombination = new KeyCodeCombination(KeyCode.Q, KeyCombination.ALT_DOWN);
+		this.buttonExit.setAccelerator(theKeyCodeCombination);
 	}
 
 }
