@@ -129,7 +129,7 @@ public class WeatherManager {
 	
 	public WeatherForADay getTheLastDay() {
 		
-		int lastIndex = this.getTheSortedWeather().size();
+		int lastIndex = this.getTheSortedWeather().size() - 1;
 		
 		return this.getTheSortedWeather().get(lastIndex);
 		
