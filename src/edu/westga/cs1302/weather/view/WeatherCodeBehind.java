@@ -69,5 +69,16 @@ public class WeatherCodeBehind {
 		theFileChooser.showOpenDialog(stage);
 		
 	}
+	
+	/**
+	 * Exits out of the application
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 */
+	
+	public void exitTheApplication() {
+		System.exit(0);
+	}
 
 }
