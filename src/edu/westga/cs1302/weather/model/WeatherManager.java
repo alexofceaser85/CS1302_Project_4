@@ -1,5 +1,15 @@
 package edu.westga.cs1302.weather.model;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,7 +36,7 @@ public class WeatherManager {
 	public WeatherManager() {
 		
 		this.theDailyWeather = new HashMap<String, WeatherForADay>();
-		
+
 	}
 	
 	/**
@@ -72,6 +82,39 @@ public class WeatherManager {
 	}
 	
 	/**
+	 */
+	
+	public void getTheSortedWeather() {
+		
+		ArrayList<WeatherForADay> theSortedWeather = new ArrayList<WeatherForADay>();
+		
+		for (Map.Entry<String, WeatherForADay> current : this.theDailyWeather.entrySet()) {
+			theSortedWeather.add(current.getValue());
+		}
+		
+		Collections.sort(theSortedWeather, new Comparator<WeatherForADay>() {
+			
+			private DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
+			@Override
+			public int compare(WeatherForADay o1, WeatherForADay o2) {
+				
+				String firstDate = o1.getTheDate();
+				String secondDate = o2.getTheDate();
+				
+				try {
+					return this.df.parse(firstDate).compareTo(this.df.parse(secondDate));
+				} catch (ParseException theParseException) {
+					System.out.println("I cannot");
+					return 0;
+				}
+			}
+			
+		});
+		System.out.println(theSortedWeather);
+	}
+	
+	/**
 	 * The toString for the weather manager
 	 * 
 	 * @precondition none
@@ -92,4 +135,5 @@ public class WeatherManager {
 		return description;
 		
 	}
+
 }
