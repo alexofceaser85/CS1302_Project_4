@@ -29,8 +29,11 @@ class TestAddWeatherDay {
 		
 		theManager.addWeatherDay(theDaysWeather);
 		
-		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: CARROLLTON, GA US with the maximum temperature of: 92.0 with the minimum temperature of: 68.0"
-				+ System.lineSeparator(), theManager.toString());
+		assertEquals("The Sorted Array List: " + System.lineSeparator() 
+			+ "The day: 2020-07-01 at the station: USC00091640 at the location: CARROLLTON, GA US with the maximum temperature of: 92.0 with the minimum temperature of: 68.0" + System.lineSeparator() 
+			+ "The Unsorted HashMap" + System.lineSeparator()
+			+ "2020-07-01=The day: 2020-07-01 at the station: USC00091640 at the location: CARROLLTON, GA US with the maximum temperature of: 92.0 with the minimum temperature of: 68.0"
+			+ System.lineSeparator(), theManager.toString());
 	}
 	
 	@Test
@@ -46,9 +49,14 @@ class TestAddWeatherDay {
 		theManager.addWeatherDay(theThirdDaysWeather);
 		theManager.getTheSortedWeather();
 		
-		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: CARROLLTON, GA US with the maximum temperature of: 92.0 with the minimum temperature of: 68.0"
-				+ System.lineSeparator() + "The day: 2020-07-02 at the station: USC00091640 at the location: CARROLLTON, GA US with the maximum temperature of: 90.0 with the minimum temperature of: 71.0"
-				+ System.lineSeparator() + "The day: 2020-07-03 at the station: USC00091640 at the location: CARROLLTON, GA US with the maximum temperature of: 85.0 with the minimum temperature of: 40.0"
+		assertEquals("The Sorted Array List: " + System.lineSeparator() 
+			+ "The day: 2020-07-01 at the station: USC00091640 at the location: CARROLLTON, GA US with the maximum temperature of: 92.0 with the minimum temperature of: 68.0" 
+				+ System.lineSeparator() + "The day: 2020-07-02 at the station: USC00091640 at the location: CARROLLTON, GA US with the maximum temperature of: 90.0 with the minimum temperature of: 71.0" 
+			    + System.lineSeparator() + "The day: 2020-07-03 at the station: USC00091640 at the location: CARROLLTON, GA US with the maximum temperature of: 85.0 with the minimum temperature of: 40.0"
+				+ System.lineSeparator() + "The Unsorted HashMap"
+			    + System.lineSeparator() + "2020-07-03=The day: 2020-07-03 at the station: USC00091640 at the location: CARROLLTON, GA US with the maximum temperature of: 85.0 with the minimum temperature of: 40.0" 
+				+ System.lineSeparator() + "2020-07-01=The day: 2020-07-01 at the station: USC00091640 at the location: CARROLLTON, GA US with the maximum temperature of: 92.0 with the minimum temperature of: 68.0"
+				+ System.lineSeparator() + "2020-07-02=The day: 2020-07-02 at the station: USC00091640 at the location: CARROLLTON, GA US with the maximum temperature of: 90.0 with the minimum temperature of: 71.0" 
 				+ System.lineSeparator(), theManager.toString());
 	}
 

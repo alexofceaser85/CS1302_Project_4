@@ -123,9 +123,15 @@ public class WeatherManager {
 	@Override
 	public String toString() {
 		
-		String description = "";
+		String description = "The Sorted Array List: " + System.lineSeparator();
 		
 		for (WeatherForADay current : this.theSortedWeather) {
+			description += current.toString() + System.lineSeparator();
+		}
+		
+		description += "The Unsorted HashMap" + System.lineSeparator();
+		
+		for (HashMap.Entry<String, WeatherForADay> current : this.getTheWeatherSortedByDay().entrySet()) {
 			description += current.toString() + System.lineSeparator();
 		}
 		
