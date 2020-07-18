@@ -9,29 +9,29 @@ import edu.westga.cs1302.weather.model.WeatherManager;
 
 class TestAddWeatherDay {
 
-//	@Test
-//	public void shouldNotAddNullWeatherForDay() {
-//		
-//		WeatherManager theManager = new WeatherManager();
-//
-//		assertThrows(IllegalArgumentException.class, () -> {
-//			
-//			theManager.addWeatherDay(null);
-//			
-//		});
-//	}
-//	
-//	@Test
-//	public void shouldAddWeatherDayToEmptyManager() {
-//		
-//		WeatherManager theManager = new WeatherManager();
-//		WeatherForADay theDaysWeather = new WeatherForADay("USC00091640", "CARROLLTON, GA US", "2020-07-01", 92, 68);
-//		
-//		theManager.addWeatherDay(theDaysWeather);
-//		
-//		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: CARROLLTON, GA US with the maximum temperature of: 92.0 with the minimum temperature of: 68.0"
-//				+ System.lineSeparator(), theManager.toString());
-//	}
+	@Test
+	public void shouldNotAddNullWeatherForDay() {
+		
+		WeatherManager theManager = new WeatherManager();
+
+		assertThrows(IllegalArgumentException.class, () -> {
+			
+			theManager.addWeatherDay(null);
+			
+		});
+	}
+	
+	@Test
+	public void shouldAddWeatherDayToEmptyManager() {
+		
+		WeatherManager theManager = new WeatherManager();
+		WeatherForADay theDaysWeather = new WeatherForADay("USC00091640", "CARROLLTON, GA US", "2020-07-01", 92, 68);
+		
+		theManager.addWeatherDay(theDaysWeather);
+		
+		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: CARROLLTON, GA US with the maximum temperature of: 92.0 with the minimum temperature of: 68.0"
+				+ System.lineSeparator(), theManager.toString());
+	}
 	
 	@Test
 	public void shouldAddMultipleWeatherDays() {
@@ -46,9 +46,9 @@ class TestAddWeatherDay {
 		theManager.addWeatherDay(theThirdDaysWeather);
 		theManager.getTheSortedWeather();
 		
-		assertEquals("The day: 2020-07-03 at the station: USC00091640 at the location: CARROLLTON, GA US with the maximum temperature of: 85.0 with the minimum temperature of: 40.0"
-				+ System.lineSeparator() + "The day: 2020-07-01 at the station: USC00091640 at the location: CARROLLTON, GA US with the maximum temperature of: 92.0 with the minimum temperature of: 68.0"
+		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: CARROLLTON, GA US with the maximum temperature of: 92.0 with the minimum temperature of: 68.0"
 				+ System.lineSeparator() + "The day: 2020-07-02 at the station: USC00091640 at the location: CARROLLTON, GA US with the maximum temperature of: 90.0 with the minimum temperature of: 71.0"
+				+ System.lineSeparator() + "The day: 2020-07-03 at the station: USC00091640 at the location: CARROLLTON, GA US with the maximum temperature of: 85.0 with the minimum temperature of: 40.0"
 				+ System.lineSeparator(), theManager.toString());
 	}
 

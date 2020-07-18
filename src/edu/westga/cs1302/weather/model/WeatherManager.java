@@ -125,10 +125,8 @@ public class WeatherManager {
 		
 		String description = "";
 		
-		for (Map.Entry<String, WeatherForADay> current : this.theWeatherByDay.entrySet()) {
-			
-			description += current.getValue().toString() + System.lineSeparator();
-			
+		for (WeatherForADay current : this.theSortedWeather) {
+			description += current.toString() + System.lineSeparator();
 		}
 		
 		return description;
