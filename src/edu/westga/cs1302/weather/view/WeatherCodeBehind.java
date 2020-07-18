@@ -58,6 +58,7 @@ public class WeatherCodeBehind {
 	private void initialize() {
 		this.keyBindChooseFile();
 		this.keyBindExitProgram();
+		this.keyBindAboutProgram();
 	}
 	
 	/**
@@ -107,6 +108,12 @@ public class WeatherCodeBehind {
 		this.buttonExit.setMnemonicParsing(true);
 		KeyCodeCombination theKeyCodeCombination = new KeyCodeCombination(KeyCode.Q, KeyCombination.ALT_DOWN);
 		this.buttonExit.setAccelerator(theKeyCodeCombination);
+	}
+	
+	private void keyBindAboutProgram() {
+		this.buttonAbout.setMnemonicParsing(true);
+		KeyCodeCombination theKeyCodeCombination = new KeyCodeCombination(KeyCode.A, KeyCombination.ALT_DOWN);
+		this.buttonAbout.setAccelerator(theKeyCodeCombination);
 	}
 
 }
