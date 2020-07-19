@@ -1,6 +1,7 @@
 package edu.westga.cs1302.weather.view;
 
 import edu.westga.cs1302.weather.io.ReadWeatherFile;
+import edu.westga.cs1302.weather.model.WeatherForADay;
 import edu.westga.cs1302.weather.model.WeatherManager;
 
 /**
@@ -65,6 +66,40 @@ public class WeatherViewModel {
 				+ System.lineSeparator() + theManager.getTheLastDay();
 		
 		return theOutput;
+		
+	}
+	
+	/**
+	 * Gets the weather days that match a location
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @param locationInput the location to find
+	 * 
+	 * @return the locations that match the location input
+	 */
+	
+	
+	public String setLocationOutput(String locationInput) {
+		
+		WeatherManager theManager = this.theReadWeatherFile.getTheWeatherManager();
+		
+		String output = "";
+		
+		if (!theManager.getWeatherWithMatchedLocation(locationInput).isEmpty()) {
+
+			output = "--- The Locations That Match Location ---";
+			
+			for (WeatherForADay current : theManager.getWeatherWithMatchedLocation(locationInput)) {
+				
+				output += current.toString() + System.lineSeparator();	
+			}	
+		} else {
+			output = "There are no locations that match";
+		}
+		
+		return output;
 		
 	}
 

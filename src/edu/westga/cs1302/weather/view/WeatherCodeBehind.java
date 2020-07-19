@@ -5,6 +5,7 @@ import java.nio.file.Paths;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
@@ -44,6 +45,9 @@ public class WeatherCodeBehind {
 
     @FXML
     private Label labelTheOutput;
+    
+    @FXML
+    private TextArea textAreaTheLocationInput;
     
 	private WeatherViewModel theWeatherViewModel;
 	
@@ -122,6 +126,19 @@ public class WeatherCodeBehind {
 	public void displayOutput() {
 		
 		this.labelTheOutput.setText(this.theWeatherViewModel.setOutput());
+		
+	}
+	
+	/**
+	 * displays the locations found to the gui
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 */
+	
+	public void displayLocationOutput() {
+		System.out.println("gggg");
+		this.labelTheOutput.setText(this.theWeatherViewModel.setLocationOutput(this.textAreaTheLocationInput.getText()));
 		
 	}
 	
