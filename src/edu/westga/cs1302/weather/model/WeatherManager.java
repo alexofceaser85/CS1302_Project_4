@@ -77,7 +77,6 @@ public class WeatherManager {
 		}
 		
 		this.theSortedWeather.add(weatherToAdd);
-		this.sortTheArray(this.theSortedWeather);
 		this.getTheWeatherSortedByDay().put(weatherToAdd.getTheDate(), weatherToAdd);
 	}
 	
@@ -140,6 +139,7 @@ public class WeatherManager {
 	 */
 	
 	public ArrayList<WeatherForADay> getTheSortedWeather() {
+		this.sortTheArray(this.theSortedWeather);
 		return this.theSortedWeather;
 	}
 	
