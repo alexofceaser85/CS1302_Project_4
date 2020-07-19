@@ -80,7 +80,6 @@ public class WeatherViewModel {
 	 * @return the locations that match the location input
 	 */
 	
-	
 	public String setLocationOutput(String locationInput) {
 		
 		WeatherManager theManager = this.theReadWeatherFile.getTheWeatherManager();
@@ -89,7 +88,7 @@ public class WeatherViewModel {
 		
 		if (!theManager.getWeatherWithMatchedLocation(locationInput).isEmpty()) {
 
-			output = "--- The Locations That Match Location ---";
+			output = "--- The Locations That Match Location ---" + System.lineSeparator();
 			
 			for (WeatherForADay current : theManager.getWeatherWithMatchedLocation(locationInput)) {
 				

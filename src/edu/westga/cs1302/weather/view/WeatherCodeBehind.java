@@ -137,8 +137,10 @@ public class WeatherCodeBehind {
 	 */
 	
 	public void displayLocationOutput() {
-		System.out.println("gggg");
-		this.labelTheOutput.setText(this.theWeatherViewModel.setLocationOutput(this.textAreaTheLocationInput.getText()));
+		
+		if (!this.textAreaTheLocationInput.getText().isEmpty()) {
+			this.labelTheOutput.setText(this.theWeatherViewModel.setLocationOutput(this.textAreaTheLocationInput.getText()));
+		}
 		
 	}
 	
