@@ -32,6 +32,8 @@ public class WeatherCodeBehind {
 	
 	private static final String INFORMATION_ALERT_TITLE = "Weather Parser by Alex DeCesare";
 	private static final String INFORMATION_ALERT_CONTENT_TEXT = "This program parses weather data which is split by new lines for each day and double quotes for each peice of data";
+	private static final String NO_FILE_SELECTED_TITLE = "There is no file selected";
+	private static final String NO_FILE_SELECTED_CONTENT_TEXT = "Please select a file to parse";
 	
 	@FXML
 	private Pane thePane;
@@ -80,18 +82,25 @@ public class WeatherCodeBehind {
 	@FXML
 	public void chooseFile() {
 		
-		Window stage = this.thePane.getScene().getWindow();
-		
-		FileChooser theFileChooser = new FileChooser();
-		String theCurrentFilePath = Paths.get(".").toAbsolutePath().normalize().toString();
-		theFileChooser.getExtensionFilters().addAll(
-				new FileChooser.ExtensionFilter("All Files", "*"),
-				new FileChooser.ExtensionFilter("Only .txt Files", "*.txt")
-		);
-		
-		theFileChooser.setInitialDirectory(new File(theCurrentFilePath + "/src"));
-		theFileChooser.showOpenDialog(stage);
-		
+		try {
+			Window stage = this.thePane.getScene().getWindow();
+			
+			FileChooser theFileChooser = new FileChooser();
+			
+			this.setFileChooserProperties(theFileChooser);
+			
+			File theFile = theFileChooser.showOpenDialog(stage);
+			
+			this.theWeatherViewModel.parseFile(theFile.getAbsolutePath());
+			
+			this.displayOutput();
+		} catch (NullPointerException theNullPointerException) {
+			Alert theAlert = new Alert(AlertType.INFORMATION);
+			theAlert.setTitle(NO_FILE_SELECTED_TITLE);
+			theAlert.setContentText(NO_FILE_SELECTED_CONTENT_TEXT);
+			theAlert.showAndWait();
+		}
+
 	}
 	
 	/**
@@ -106,6 +115,19 @@ public class WeatherCodeBehind {
 	}
 	
 	/**
+	 * Displays the output to the gui
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 */
+	
+	public void displayOutput() {
+		
+		this.labelTheOutput.setText(this.theWeatherViewModel.setOutput());
+		
+	}
+	
+	/**
 	 * Displays an about section 
 	 * 
 	 * @precondition none
@@ -117,6 +139,15 @@ public class WeatherCodeBehind {
 		theAlert.setTitle(INFORMATION_ALERT_TITLE);
 		theAlert.setContentText(INFORMATION_ALERT_CONTENT_TEXT);
 		theAlert.showAndWait();
+	}
+	
+	private void setFileChooserProperties(FileChooser theFileChooser) {
+		String theCurrentFilePath = Paths.get(".").toAbsolutePath().normalize().toString();
+		theFileChooser.setInitialDirectory(new File(theCurrentFilePath + "/src"));
+		theFileChooser.getExtensionFilters().addAll(
+				new FileChooser.ExtensionFilter("All Files", "*"),
+				new FileChooser.ExtensionFilter("Only .txt Files", "*.txt")
+		);
 	}
 	
 	private void keyBindChooseFile() {
