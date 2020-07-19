@@ -1,6 +1,7 @@
 package edu.westga.cs1302.weather.view;
 
 import edu.westga.cs1302.weather.io.ReadWeatherFile;
+import edu.westga.cs1302.weather.model.WeatherManager;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
@@ -65,7 +66,16 @@ public class WeatherViewModel {
 	
 	public String setOutput() {
 		
-		return this.theReadWeatherFile.getTheWeatherManager().toString();
+		WeatherManager theManager = this.theReadWeatherFile.getTheWeatherManager();
+		
+		String theOutput = "---The First Day In The File---" 
+				+ System.lineSeparator() + theManager.getTheFirstDay() 
+				+ System.lineSeparator() + "---The Middle Day In The File---"
+				+ System.lineSeparator() + theManager.getTheMiddleDay()
+				+ System.lineSeparator() + "---The Last Day in The File---"
+				+ System.lineSeparator() + theManager.getTheLastDay();
+		
+		return theOutput;
 		
 	}
 
