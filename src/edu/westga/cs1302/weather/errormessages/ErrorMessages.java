@@ -21,6 +21,9 @@ public class ErrorMessages {
 	public static final String THE_DATE_TO_FIND_CANNOT_BE_NULL = "The date to find cannot be null";
 	public static final String THE_DATE_TO_FIND_CANNOT_BE_EMPTY = "The date to find cannot be empty";
 	
+	public static final String CANNOT_SET_A_NULL_FILE = "Cannot set a null file name";
+	public static final String CANNOT_SET_AN_EMPTY_FILE = "Cannot set an empty file";
+	
 	public static final String ALERT_THERE_WAS_AN_ERROR_PARSING_THE_DATE = "There was an error with the date";
 	public static final String ALERT_THERE_WAS_AN_ERROR_PARSING_THE_TEMPERATURE = "There was an error with parsing the temperature";
 	public static final String ALERT_THERE_WAS_AN_ERROR_READING_THE_FILE = "There was an error with reading the file";
