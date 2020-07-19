@@ -35,16 +35,9 @@ public class ReadWeatherFile {
 	 */
 	
 	public ReadWeatherFile() {
-		try {
-			this.theFile = new File(this.theFileName);
-			this.inFile = new Scanner(this.theFile);
-			this.theWeatherManager = new WeatherManager();
-			
-		} catch (FileNotFoundException theFileNotFoundException) {
-			Alert theAlert = new Alert(AlertType.WARNING);
-			theAlert.setContentText(THE_FILE_NOT_FOUND_WARNING);
-			theAlert.showAndWait();
-		}
+
+		this.theWeatherManager = new WeatherManager();
+
 	}
 	
 	/**
@@ -66,6 +59,24 @@ public class ReadWeatherFile {
 		}
 		
 		this.theFileName = fileNameToSet;
+	}
+	
+	/**
+	 * Sets the file
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 */
+	
+	public void setTheFile() {
+		try {
+			this.theFile = new File(this.theFileName);
+			this.inFile = new Scanner(this.theFile);
+		} catch (FileNotFoundException theFileNotFoundException) {
+			Alert theAlert = new Alert(AlertType.WARNING);
+			theAlert.setContentText(THE_FILE_NOT_FOUND_WARNING);
+			theAlert.showAndWait();
+		}
 	}
 	
 	/**
