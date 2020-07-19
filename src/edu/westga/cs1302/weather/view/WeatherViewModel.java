@@ -1,7 +1,8 @@
 package edu.westga.cs1302.weather.view;
 
 import edu.westga.cs1302.weather.io.ReadWeatherFile;
-import edu.westga.cs1302.weather.model.WeatherManager;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 /**
  * The view model class for the weather project
@@ -12,7 +13,8 @@ import edu.westga.cs1302.weather.model.WeatherManager;
 
 public class WeatherViewModel {
 	
-	private WeatherManager theWeatherManager;
+	private static final String ALERT_PARSE_FILE_ERROR_TITLE = "There was an error"; 
+	
 	private ReadWeatherFile theReadWeatherFile;
 	
 	/**
@@ -24,7 +26,6 @@ public class WeatherViewModel {
 	
 	public WeatherViewModel() {
 		
-		this.theWeatherManager = new WeatherManager();
 		this.theReadWeatherFile = new ReadWeatherFile();
 		
 	}
@@ -40,9 +41,17 @@ public class WeatherViewModel {
 	
 	public void parseFile(String fileNameToSet) {
 		
-		this.theReadWeatherFile.setFileName(fileNameToSet);
-		this.theReadWeatherFile.setTheFile();
-		this.theReadWeatherFile.readFile();
+		try {
+			this.theReadWeatherFile.setFileName(fileNameToSet);
+			this.theReadWeatherFile.setTheFile();
+			this.theReadWeatherFile.readFile();
+		} catch (IllegalArgumentException theIllegalArgumentException) {
+			Alert theAlert = new Alert(AlertType.ERROR);
+			theAlert.setTitle(ALERT_PARSE_FILE_ERROR_TITLE);
+			theAlert.setContentText(theIllegalArgumentException.getMessage());
+			theAlert.showAndWait();
+		}
+
 	}
 	
 	/**
