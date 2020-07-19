@@ -149,10 +149,12 @@ public class WeatherManager {
 			throw new IllegalArgumentException(ErrorMessages.THE_LOCATION_TO_SEARCH_CANNOT_BE_EMPTY);
 		}
 		
+		String uppercaseLocationToSearch = locationToSearch.toUpperCase();
+		
 		ArrayList<WeatherForADay> theMatchedArrays = new ArrayList<WeatherForADay>();
 		
 		for (WeatherForADay current : this.theSortedWeather) {
-			if (current.getTheLocationName() == locationToSearch) {
+			if (current.getTheLocationName() == uppercaseLocationToSearch) {
 				
 				theMatchedArrays.add(current);
 				
