@@ -30,6 +30,9 @@ import javafx.stage.Window;
 
 public class WeatherCodeBehind {
 	
+	private static final String INFORMATION_ALERT_TITLE = "Weather Parser by Alex DeCesare";
+	private static final String INFORMATION_ALERT_CONTENT_TEXT = "This program parses weather data which is split by new lines for each day and double quotes for each peice of data";
+	
 	@FXML
 	private Pane thePane;
 
@@ -111,8 +114,8 @@ public class WeatherCodeBehind {
 	
 	public void displayAboutTheApplication() {
 		Alert theAlert = new Alert(AlertType.INFORMATION);
-		theAlert.setTitle("Weather Parser by Alex DeCesare");
-		theAlert.setContentText("This program parses weather data which is split by new lines for each day and double quotes for each peice of data");
+		theAlert.setTitle(INFORMATION_ALERT_TITLE);
+		theAlert.setContentText(INFORMATION_ALERT_CONTENT_TEXT);
 		theAlert.showAndWait();
 	}
 	
