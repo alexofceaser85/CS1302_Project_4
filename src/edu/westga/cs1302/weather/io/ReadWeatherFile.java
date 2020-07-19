@@ -114,6 +114,8 @@ public class ReadWeatherFile {
 	
 	public void readFile() {
 		
+		this.theWeatherManager = new WeatherManager();
+		
 		try {
 			
 			this.getInFileScanner().nextLine();
