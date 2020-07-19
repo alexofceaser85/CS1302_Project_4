@@ -1,10 +1,9 @@
 package edu.westga.cs1302.weather.testing;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
-
-import com.sun.glass.ui.Application;
 
 import edu.westga.cs1302.weather.model.WeatherForADay;
 import edu.westga.cs1302.weather.model.WeatherManager;

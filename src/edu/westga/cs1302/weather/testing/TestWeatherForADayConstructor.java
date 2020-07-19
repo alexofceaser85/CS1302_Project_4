@@ -1,6 +1,7 @@
 package edu.westga.cs1302.weather.testing;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -206,8 +207,6 @@ class TestWeatherForADayConstructor {
 		assertEquals("The day: 2020-07-01 at the station: USC00091640 at the location: Carrollton GA US with the maximum temperature of: -0.1 with the minimum temperature of: -200.0", testWeather.toString());
 		
 	}
-	
-	
 	
 	@Test
 	public void shouldAllowMinimumTemperatureWellAboveZero() {

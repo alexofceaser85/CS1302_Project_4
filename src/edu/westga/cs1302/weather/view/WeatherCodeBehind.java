@@ -3,10 +3,6 @@ package edu.westga.cs1302.weather.view;
 import java.io.File;
 import java.nio.file.Paths;
 
-import javax.swing.KeyStroke;
-
-import com.sun.glass.events.KeyEvent;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Alert;
@@ -16,9 +12,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import javafx.stage.Window;
 
 /**

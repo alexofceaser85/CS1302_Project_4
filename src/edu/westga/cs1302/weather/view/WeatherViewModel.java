@@ -2,8 +2,6 @@ package edu.westga.cs1302.weather.view;
 
 import edu.westga.cs1302.weather.io.ReadWeatherFile;
 import edu.westga.cs1302.weather.model.WeatherManager;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 
 /**
  * The view model class for the weather project

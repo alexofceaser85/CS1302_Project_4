@@ -3,15 +3,10 @@ package edu.westga.cs1302.weather.model;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Map;
 
 import edu.westga.cs1302.weather.errormessages.ErrorMessages;
 import javafx.scene.control.Alert;
