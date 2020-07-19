@@ -130,6 +130,40 @@ public class WeatherManager {
 	}
 	
 	/**
+	 * Gets the weather dates that math a given location
+	 * 
+	 * @precondition locationToSearch != null && locationToSearch.isEmpty == false
+	 * @postcondition none
+	 * 
+	 * @param locationToSearch the location to find
+	 * 
+	 * @return the locations that match 
+	 */
+	
+	public ArrayList<WeatherForADay> getWeatherWithMatchedLocation(String locationToSearch) {
+		
+		if (locationToSearch == null) {
+			throw new IllegalArgumentException(ErrorMessages.THE_LOCATION_TO_SEARCH_CANNOT_BE_NULL);
+		}
+		if (locationToSearch.isEmpty()) {
+			throw new IllegalArgumentException(ErrorMessages.THE_LOCATION_TO_SEARCH_CANNOT_BE_EMPTY);
+		}
+		
+		ArrayList<WeatherForADay> theMatchedArrays = new ArrayList<WeatherForADay>();
+		
+		for (WeatherForADay current : this.theSortedWeather) {
+			if (current.getTheLocationName() == locationToSearch) {
+				
+				theMatchedArrays.add(current);
+				
+			}
+		}
+		
+		return theMatchedArrays;
+		
+	}
+	
+	/**
 	 * Gets the weather data
 	 * 
 	 * @precondition none

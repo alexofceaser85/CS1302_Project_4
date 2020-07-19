@@ -17,6 +17,9 @@ public class ErrorMessages {
 	public static final String DATE_CANNOT_BE_EMPTY = "The date cannot be empty";
 	public static final String MINIMUM_TEMPERATURE_CANNOT_BE_MORE_THAN_MAXIMUM_TEMPERATURE = "Cannot set the minimum temperature to more than the maximum temperature";
 	
+	public static final String THE_LOCATION_TO_SEARCH_CANNOT_BE_NULL = "The location to find cannot be null";
+	public static final String THE_LOCATION_TO_SEARCH_CANNOT_BE_EMPTY = "The location to find cannot be empty";
+	
 	public static final String THE_WEATHER_FOR_A_DAY_CANNOT_BE_NULL = "The weather for a day to add to the manager cannot be null";
 	public static final String THE_DATE_TO_FIND_CANNOT_BE_NULL = "The date to find cannot be null";
 	public static final String THE_DATE_TO_FIND_CANNOT_BE_EMPTY = "The date to find cannot be empty";
