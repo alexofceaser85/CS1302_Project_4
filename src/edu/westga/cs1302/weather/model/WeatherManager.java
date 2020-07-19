@@ -154,8 +154,9 @@ public class WeatherManager {
 		ArrayList<WeatherForADay> theMatchedArrays = new ArrayList<WeatherForADay>();
 		
 		for (WeatherForADay current : this.theSortedWeather) {
-			if (current.getTheLocationName() == uppercaseLocationToSearch) {
-				
+			
+			if (current.getTheLocationName().equals(uppercaseLocationToSearch)) {
+
 				theMatchedArrays.add(current);
 				
 			}
