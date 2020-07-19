@@ -9,6 +9,8 @@ import com.sun.glass.events.KeyEvent;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
@@ -94,6 +96,20 @@ public class WeatherCodeBehind {
 	
 	public void exitTheApplication() {
 		System.exit(0);
+	}
+	
+	/**
+	 * Displays an about section 
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 */
+	
+	public void displayAboutTheApplication() {
+		Alert theAlert = new Alert(AlertType.INFORMATION);
+		theAlert.setTitle("Weather Parser by Alex DeCesare");
+		theAlert.setContentText("This program parses weather data which is split by new lines for each day and double quotes for each peice of data");
+		theAlert.showAndWait();
 	}
 	
 	private void keyBindChooseFile() {
