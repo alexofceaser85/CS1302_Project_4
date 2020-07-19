@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.weather.view.WeatherCodeBehind">
    <children>
-      <HBox fx:id="thePane" prefHeight="217.0" prefWidth="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <HBox fx:id="thePane" prefHeight="27.0" prefWidth="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <MenuBar maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="809.0" HBox.hgrow="ALWAYS">
               <menus>
@@ -35,9 +35,9 @@
             </MenuBar>
          </children>
       </HBox>
-      <HBox layoutY="209.0" prefHeight="284.0" prefWidth="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <HBox layoutY="27.0" prefHeight="466.0" prefWidth="400.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Label fx:id="labelTheOutput" alignment="CENTER" lineSpacing="6.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="284.0" prefWidth="400.0" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS" />
+            <Label fx:id="labelTheOutput" alignment="TOP_CENTER" lineSpacing="6.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="251.0" prefWidth="400.0" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
    </children>

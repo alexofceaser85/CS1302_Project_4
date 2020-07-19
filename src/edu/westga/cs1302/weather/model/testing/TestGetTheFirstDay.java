@@ -1,4 +1,4 @@
-package edu.westga.cs1302.weather.testing;
+package edu.westga.cs1302.weather.model.testing;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -8,21 +8,21 @@ import org.junit.jupiter.api.Test;
 import edu.westga.cs1302.weather.model.WeatherForADay;
 import edu.westga.cs1302.weather.model.WeatherManager;
 
-class TestGetTheLastDay {
-
+class TestGetTheFirstDay {
+	
 	@Test
 	public void shouldThrowAnExceptionForEmptyManager() {
 		
 		WeatherManager theManager = new WeatherManager();
 		
 		assertThrows(IndexOutOfBoundsException.class, () -> {
-			theManager.getTheLastDay();
+			theManager.getTheFirstDay();
 		});
 		
 	}
 	
 	@Test
-	public void shouldReturnTheLastWeatherForManagerWithOneWeather() {
+	public void shouldReturnTheFirstWeatherForManagerWithOneWeather() {
 		
 		WeatherManager theManager = new WeatherManager();
 		
@@ -30,11 +30,11 @@ class TestGetTheLastDay {
 		
 		theManager.addWeatherDay(theFirstWeather);
 		
-		assertEquals("The day: 2020-08-01 at the station: USC00091640 at the location: CARROLLTON GA US with the maximum temperature of: 92.0 with the minimum temperature of: 68.0", theManager.getTheLastDay().toString());
+		assertEquals("The day: 2020-08-01 at the station: USC00091640 at the location: CARROLLTON GA US with the maximum temperature of: 92.0 with the minimum temperature of: 68.0", theManager.getTheFirstDay().toString());
 	}
 	
 	@Test
-	public void shouldReturnTheLastWeatherForMultipleWeathersOdd() {
+	public void shouldReturnTheFirstWeatherForMultipleWeathersOdd() {
 		
 		WeatherManager theManager = new WeatherManager();
 		
@@ -46,11 +46,11 @@ class TestGetTheLastDay {
 		theManager.addWeatherDay(theSecondWeather);
 		theManager.addWeatherDay(theThirdWeather);
 		
-		assertEquals("The day: 2020-08-03 at the station: USC00091640 at the location: CARROLLTON GA US with the maximum temperature of: 90.0 with the minimum temperature of: 70.0", theManager.getTheLastDay().toString());
+		assertEquals("The day: 2020-08-01 at the station: USC00091640 at the location: CARROLLTON GA US with the maximum temperature of: 92.0 with the minimum temperature of: 68.0", theManager.getTheFirstDay().toString());
 	}
 	
 	@Test
-	public void shouldReturnTheLastWeatherForMultipleWeathersEven() {
+	public void shouldReturnTheFirstWeatherForMultipleWeathersEven() {
 		
 		WeatherManager theManager = new WeatherManager();
 		
@@ -64,7 +64,7 @@ class TestGetTheLastDay {
 		theManager.addWeatherDay(theThirdWeather);
 		theManager.addWeatherDay(theFourthWeather);
 		
-		assertEquals("The day: 2020-08-04 at the station: USC00091640 at the location: CARROLLTON GA US with the maximum temperature of: 75.0 with the minimum temperature of: 40.0", theManager.getTheLastDay().toString());
+		assertEquals("The day: 2020-08-01 at the station: USC00091640 at the location: CARROLLTON GA US with the maximum temperature of: 92.0 with the minimum temperature of: 68.0", theManager.getTheFirstDay().toString());
 		
 	}
 
