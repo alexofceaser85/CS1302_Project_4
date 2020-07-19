@@ -68,7 +68,8 @@ public class WeatherViewModel {
 		
 		WeatherManager theManager = this.theReadWeatherFile.getTheWeatherManager();
 		
-		String theOutput = "---The First Day In The File---" 
+		String theOutput = "The File Name: " + this.theReadWeatherFile.getFileNameNoExtension()
+				+ System.lineSeparator() + "---The First Day In The File---" 
 				+ System.lineSeparator() + theManager.getTheFirstDay() 
 				+ System.lineSeparator() + "---The Middle Day In The File---"
 				+ System.lineSeparator() + theManager.getTheMiddleDay()

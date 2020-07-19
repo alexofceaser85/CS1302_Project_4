@@ -129,6 +129,29 @@ public class ReadWeatherFile {
 		
 	}
 	
+	/**
+	 * Gets the file name without extension
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return the file name
+	 */
+	
+	public String getFileNameNoExtension() {
+		
+		String fullFileName = this.theFile.getName();
+		
+		int indexOfExtension = fullFileName.lastIndexOf(".");
+		
+		if (indexOfExtension > 0) {
+			fullFileName = fullFileName.substring(0, indexOfExtension);
+		}
+		
+		return fullFileName;
+		
+	}
+	
 	private void addFileLineToWeather(String theWeatherLine) {
 
 		String[] theFileLine = this.parseTheFileLine(theWeatherLine);
