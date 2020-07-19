@@ -28,6 +28,8 @@ public class WeatherCodeBehind {
 	private static final String INFORMATION_ALERT_CONTENT_TEXT = "This program parses weather data which is split by new lines for each day and double quotes for each peice of data";
 	private static final String NO_FILE_SELECTED_TITLE = "There is no file selected";
 	private static final String NO_FILE_SELECTED_CONTENT_TEXT = "Please select a file to parse";
+	private static final String ARRAY_OUT_OF_BOUNDS_FILE_SELECTED_TITLE = "There was a problem parsing this file";
+	private static final String ARRAY_OUT_OF_BOUNDS_FILE_SELECTED_CONTENT_TEXT = "The format to parse this file is not valid";
 	
 	@FXML
 	private Pane thePane;
@@ -92,6 +94,11 @@ public class WeatherCodeBehind {
 			Alert theAlert = new Alert(AlertType.INFORMATION);
 			theAlert.setTitle(NO_FILE_SELECTED_TITLE);
 			theAlert.setContentText(NO_FILE_SELECTED_CONTENT_TEXT);
+			theAlert.showAndWait();
+		} catch (ArrayIndexOutOfBoundsException theArrayOutOfBoundsException) {
+			Alert theAlert = new Alert(AlertType.ERROR);
+			theAlert.setTitle(ARRAY_OUT_OF_BOUNDS_FILE_SELECTED_TITLE);
+			theAlert.setContentText(ARRAY_OUT_OF_BOUNDS_FILE_SELECTED_CONTENT_TEXT);
 			theAlert.showAndWait();
 		}
 
