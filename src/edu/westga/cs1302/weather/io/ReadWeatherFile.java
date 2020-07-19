@@ -20,9 +20,9 @@ import javafx.scene.control.Alert.AlertType;
 
 public class ReadWeatherFile {
 	
-	private static final String THE_FILE_NAME = "..\\AlexDeCesareProject4\\src\\WeatherData.txt";
 	private static final String THE_FILE_NOT_FOUND_WARNING = "The file was not found";
 	
+	private String theFileName;
 	private File theFile;
 	private Scanner inFile;
 	private WeatherManager theWeatherManager;
@@ -36,7 +36,7 @@ public class ReadWeatherFile {
 	
 	public ReadWeatherFile() {
 		try {
-			this.theFile = new File(THE_FILE_NAME);
+			this.theFile = new File(this.theFileName);
 			this.inFile = new Scanner(this.theFile);
 			this.theWeatherManager = new WeatherManager();
 			
@@ -45,6 +45,27 @@ public class ReadWeatherFile {
 			theAlert.setContentText(THE_FILE_NOT_FOUND_WARNING);
 			theAlert.showAndWait();
 		}
+	}
+	
+	/**
+	 * Sets the file name
+	 * 
+	 * @precondition fileNameToSet != null && fileNameToSet.isEmpty() == false
+	 * @postcondition theFileName == fileNameToSet
+	 * 
+	 * @param fileNameToSet the file name to set
+	 */
+	
+	public void setFileName(String fileNameToSet) {
+		
+		if (fileNameToSet == null) {
+			throw new IllegalArgumentException(ErrorMessages.CANNOT_SET_A_NULL_FILE);
+		}
+		if (fileNameToSet.isEmpty()) {
+			throw new IllegalArgumentException(ErrorMessages.CANNOT_SET_AN_EMPTY_FILE);
+		}
+		
+		this.theFileName = fileNameToSet;
 	}
 	
 	/**
