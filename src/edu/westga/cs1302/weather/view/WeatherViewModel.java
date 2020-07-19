@@ -14,8 +14,6 @@ import javafx.scene.control.Alert.AlertType;
 
 public class WeatherViewModel {
 	
-	private static final String ALERT_PARSE_FILE_ERROR_TITLE = "There was an error"; 
-	
 	private ReadWeatherFile theReadWeatherFile;
 	
 	/**
@@ -42,17 +40,9 @@ public class WeatherViewModel {
 	
 	public void parseFile(String fileNameToSet) {
 		
-		try {
-			this.theReadWeatherFile.setFileName(fileNameToSet);
-			this.theReadWeatherFile.setTheFile();
-			this.theReadWeatherFile.readFile();
-		} catch (IllegalArgumentException theIllegalArgumentException) {
-			Alert theAlert = new Alert(AlertType.ERROR);
-			theAlert.setTitle(ALERT_PARSE_FILE_ERROR_TITLE);
-			theAlert.setContentText(theIllegalArgumentException.getMessage());
-			theAlert.showAndWait();
-		}
-
+		this.theReadWeatherFile.setFileName(fileNameToSet);
+		this.theReadWeatherFile.setTheFile();
+		this.theReadWeatherFile.readFile();
 	}
 	
 	/**

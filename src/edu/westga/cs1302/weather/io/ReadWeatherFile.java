@@ -113,22 +113,22 @@ public class ReadWeatherFile {
 	 */
 	
 	public void readFile() {
-		
-		this.theWeatherManager = new WeatherManager();
-		
-		try {
 			
-			this.getInFileScanner().nextLine();
+		this.getInFileScanner().nextLine();
 			
-			while (this.getInFileScanner().hasNext()) {
+		while (this.getInFileScanner().hasNextLine()) {
+			try {
 				this.addFileLineToWeather(this.getInFileScanner().nextLine());
-			} 
-		} catch (NullPointerException theNullPointerException) {
-			Alert theAlert = new Alert(AlertType.ERROR);
-			theAlert.setContentText(ErrorMessages.ALERT_THERE_WAS_AN_ERROR_READING_THE_FILE);
-			theAlert.showAndWait();
+			} catch (NullPointerException theNullPointerException) {
+				Alert theAlert = new Alert(AlertType.ERROR);
+				theAlert.setContentText(ErrorMessages.ALERT_THERE_WAS_AN_ERROR_READING_THE_FILE);
+				theAlert.showAndWait();
+			} catch (IllegalArgumentException theIllegalArgumentException) {
+				Alert theAlert = new Alert(AlertType.ERROR);
+				theAlert.setContentText(theIllegalArgumentException.getMessage());
+				theAlert.showAndWait();
+			}
 		}
-		
 	}
 	
 	/**
