@@ -22,8 +22,8 @@ public class Main extends Application {
 	
 	private static final String VIEW_EVENT_PANE_FXML = "view/EventPane.fxml";
 	private static final String THE_TITLE = "Alex DeCesare's Project Four";
-	private static final String THE_IO_EXCEPTION_TEXT = "Problem opening the file";
-	private static final String THE_NUMBER_FORMAT_EXCEPTION_TEXT = "Cannot find the file";
+	private static final String THE_IO_EXCEPTION_TEXT = "Problem opening the view pane file";
+	private static final String THE_NUMBER_FORMAT_EXCEPTION_TEXT = "Cannot find the view pane file";
 	
 	@Override
 	public void start(Stage primaryStage) {
