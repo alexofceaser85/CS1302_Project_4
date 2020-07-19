@@ -8,9 +8,6 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCodeCombination;
-import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
@@ -63,9 +60,7 @@ public class WeatherCodeBehind {
 	
 	@FXML
 	private void initialize() {
-		this.keyBindChooseFile();
-		this.keyBindExitProgram();
-		this.keyBindAboutProgram();
+
 	}
 	
 	/**
@@ -149,26 +144,6 @@ public class WeatherCodeBehind {
 				new FileChooser.ExtensionFilter("All Files", "*"),
 				new FileChooser.ExtensionFilter("Only .txt Files", "*.txt")
 		);
-	}
-	
-	private void keyBindChooseFile() {
-		
-		this.buttonOpenFile.setMnemonicParsing(true);
-		KeyCodeCombination theKeyCodeCombination = new KeyCodeCombination(KeyCode.F, KeyCombination.ALT_DOWN);
-		this.buttonOpenFile.setAccelerator(theKeyCodeCombination);
-		
-	}
-	
-	private void keyBindExitProgram() {
-		this.buttonExit.setMnemonicParsing(true);
-		KeyCodeCombination theKeyCodeCombination = new KeyCodeCombination(KeyCode.Q, KeyCombination.ALT_DOWN);
-		this.buttonExit.setAccelerator(theKeyCodeCombination);
-	}
-	
-	private void keyBindAboutProgram() {
-		this.buttonAbout.setMnemonicParsing(true);
-		KeyCodeCombination theKeyCodeCombination = new KeyCodeCombination(KeyCode.A, KeyCombination.ALT_DOWN);
-		this.buttonAbout.setAccelerator(theKeyCodeCombination);
 	}
 
 }
