@@ -82,7 +82,7 @@ public class WeatherCodeBehind {
 				new FileChooser.ExtensionFilter("Only .txt Files", "*.txt")
 		);
 		
-		theFileChooser.setInitialDirectory(new File(theCurrentFilePath));
+		theFileChooser.setInitialDirectory(new File(theCurrentFilePath + "/src"));
 		theFileChooser.showOpenDialog(stage);
 		
 	}
