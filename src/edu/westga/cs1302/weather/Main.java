@@ -3,7 +3,7 @@ package edu.westga.cs1302.weather;
 import java.io.IOException;
 import java.net.URL;
 
-import edu.westga.cs1302.weather.view.DrawChart;
+import edu.westga.cs1302.weather.chart.DrawChart;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;

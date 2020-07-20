@@ -1,4 +1,4 @@
-package edu.westga.cs1302.weather.view;
+package edu.westga.cs1302.weather.chart;
 
 import java.awt.Window;
 

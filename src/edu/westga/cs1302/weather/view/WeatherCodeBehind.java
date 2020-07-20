@@ -4,6 +4,7 @@ import java.io.File;
 
 import java.nio.file.Paths;
 
+import edu.westga.cs1302.weather.chart.DrawChart;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
