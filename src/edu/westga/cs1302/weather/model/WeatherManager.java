@@ -167,6 +167,33 @@ public class WeatherManager {
 	}
 	
 	/**
+	 * Gets the day with the highest temperature
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return the day with the highest temperature
+	 */
+	
+	public WeatherForADay getHighestTemperature() {
+		
+		double theHighestTemperature = 0;
+		WeatherForADay theHighestWeather = null;
+		
+		for (WeatherForADay current : this.getTheSortedWeather()) {
+			
+			if (current.getTheMaximumTemperature() > theHighestTemperature) {
+				
+				theHighestTemperature = current.getTheMaximumTemperature();
+				theHighestWeather = current;
+			}
+		}
+		
+		return theHighestWeather;
+		
+	}
+	
+	/**
 	 * Gets the weather data
 	 * 
 	 * @precondition none
