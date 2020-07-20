@@ -18,6 +18,7 @@ public class DrawChart extends Pane {
 	
 	private Line theXAxis;
 	private Line theYAxis;
+	private ChartData theChartMath;
 
 	/**
 	 * This class draws the chart
@@ -32,6 +33,7 @@ public class DrawChart extends Pane {
 		
 		super();
 		
+		this.theChartMath = new ChartData();
 		this.theYAxis = new Line();
 		this.theXAxis = new Line();
 		
@@ -75,7 +77,7 @@ public class DrawChart extends Pane {
 		theFirstDayMark.setEndX(40);
 		theFirstDayMark.setStartX(60);
 		
-		theFirstDayMark.layoutXProperty().bind(this.theXAxis.endXProperty().divide(4));
+		theFirstDayMark.layoutXProperty().bind(this.theXAxis.endXProperty().divide(4).add(this.theXAxis.getLayoutX()));
 		
 		thePane.getChildren().add(theFirstDayMark);
 		
@@ -91,7 +93,7 @@ public class DrawChart extends Pane {
 		theFirstDayMark.endYProperty().bind(thePane.heightProperty().subtract(60));
 		theFirstDayMark.setEndX(40);
 		theFirstDayMark.setStartX(60);
-		theFirstDayMark.layoutXProperty().bind(this.theXAxis.endXProperty().divide(4).add(this.theXAxis.endXProperty().divide(4)));
+		theFirstDayMark.layoutXProperty().bind(this.theXAxis.endXProperty().divide(4).add(this.theXAxis.endXProperty().divide(4)).add(this.theXAxis.getLayoutX()));
 		
 		thePane.getChildren().add(theFirstDayMark);
 		
@@ -107,7 +109,7 @@ public class DrawChart extends Pane {
 		theFirstDayMark.endYProperty().bind(thePane.heightProperty().subtract(60));
 		theFirstDayMark.setEndX(40);
 		theFirstDayMark.setStartX(60);
-		theFirstDayMark.layoutXProperty().bind(this.theXAxis.endXProperty().divide(2).add(this.theXAxis.endXProperty().divide(4)));
+		theFirstDayMark.layoutXProperty().bind(this.theXAxis.endXProperty().divide(2).add(this.theXAxis.endXProperty().divide(4)).add(this.theXAxis.getLayoutX()));
 		
 		thePane.getChildren().add(theFirstDayMark);
 		
