@@ -209,7 +209,7 @@ public class WeatherManager {
 		
 		for (WeatherForADay current : this.getTheSortedWeather()) {
 			
-			if (current.getTheMinimumTemperature() > theLowestTemperature) {
+			if (current.getTheMinimumTemperature() < theLowestTemperature) {
 				
 				theLowestTemperature = current.getTheMinimumTemperature();
 				theLowestWeather = current;
