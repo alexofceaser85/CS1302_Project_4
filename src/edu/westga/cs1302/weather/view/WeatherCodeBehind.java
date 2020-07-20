@@ -11,6 +11,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 
@@ -21,7 +23,7 @@ import javafx.stage.Window;
  * @version 16-July-2020
  */
 
-public class WeatherCodeBehind {
+public class WeatherCodeBehind extends Pane {
 	
 	private static final String INFORMATION_ALERT_TITLE = "Weather Parser by Alex DeCesare";
 	private static final String INFORMATION_ALERT_CONTENT_TEXT = "This program parses weather data which is split by new lines for each day and double quotes for each peice of data";
@@ -93,6 +95,7 @@ public class WeatherCodeBehind {
 			this.theWeatherViewModel.parseFile(theFile.getAbsolutePath());
 			
 			this.displayOutput();
+			this.displayChart();
 		} catch (NullPointerException theNullPointerException) {
 			Alert theAlert = new Alert(AlertType.INFORMATION);
 			theAlert.setTitle(NO_FILE_SELECTED_TITLE);
@@ -129,6 +132,21 @@ public class WeatherCodeBehind {
 		
 		this.labelTheOutput.setText(this.theWeatherViewModel.setOutput());
 		
+	}
+	
+	/**
+	 * Displays the chart to the gui
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 */
+	
+	public void displayChart() {
+		
+		DrawChart theChart = new DrawChart();
+		
+		this.chartPane.getChildren().add(theChart);	
+				
 	}
 	
 	/**
