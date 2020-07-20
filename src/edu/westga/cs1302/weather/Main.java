@@ -1,7 +1,6 @@
 package edu.westga.cs1302.weather;
 	
 import java.io.IOException;
-
 import java.net.URL;
 
 import edu.westga.cs1302.weather.view.DrawChart;
@@ -12,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 /**
  * The main class for the weather project
@@ -40,7 +40,7 @@ public class Main extends Application {
 			Scene theScene = new Scene(thePane);
 
 			primaryStage.setScene(theScene);
-			
+		
 			primaryStage.show();
 		} catch (IOException theException) {
 			Alert message = new Alert(AlertType.ERROR);

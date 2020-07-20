@@ -64,6 +64,6 @@
             <Label fx:id="labelTheOutput" alignment="CENTER" lineSpacing="12.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="400.0" textAlignment="CENTER" wrapText="true" />
          </content>
       </ScrollPane>
-      <Pane fx:id="chartPane" layoutY="302.0" maxHeight="-Infinity" prefHeight="298.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="302.0" />
+      <Pane fx:id="theChartPane" layoutY="304.0" prefHeight="296.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="304.0" />
    </children>
 </AnchorPane>

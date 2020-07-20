@@ -1,17 +1,22 @@
 package edu.westga.cs1302.weather.view;
 
 import java.io.File;
+
 import java.nio.file.Paths;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
+import javafx.scene.SubScene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
@@ -30,8 +35,8 @@ public class WeatherCodeBehind extends Pane {
 	private static final String NO_FILE_SELECTED_TITLE = "There is no file selected";
 	private static final String NO_FILE_SELECTED_CONTENT_TEXT = "Please select a file to parse";
 	private static final String ARRAY_OUT_OF_BOUNDS_FILE_SELECTED_TITLE = "There was a problem parsing this file";
-	private static final String ARRAY_OUT_OF_BOUNDS_FILE_SELECTED_CONTENT_TEXT = "The format to parse this file is not valid";
-	
+	private static final String ARRAY_OUT_OF_BOUNDS_FILE_SELECTED_CONTENT_TEXT = "The format to parse this file is not valid";	
+
     @FXML
     private HBox thePane;
 
@@ -51,7 +56,9 @@ public class WeatherCodeBehind extends Pane {
     private Label labelTheOutput;
 
     @FXML
-    private Pane chartPane;
+    private Pane theChartPane;
+    
+    private GraphicsContext theGraphicsContent;
     
 	private WeatherViewModel theWeatherViewModel;
 	
@@ -70,7 +77,7 @@ public class WeatherCodeBehind extends Pane {
 	
 	@FXML
 	private void initialize() {
-
+		this.displayChart();
 	}
 	
 	/**
@@ -95,7 +102,6 @@ public class WeatherCodeBehind extends Pane {
 			this.theWeatherViewModel.parseFile(theFile.getAbsolutePath());
 			
 			this.displayOutput();
-			this.displayChart();
 		} catch (NullPointerException theNullPointerException) {
 			Alert theAlert = new Alert(AlertType.INFORMATION);
 			theAlert.setTitle(NO_FILE_SELECTED_TITLE);
@@ -143,10 +149,8 @@ public class WeatherCodeBehind extends Pane {
 	
 	public void displayChart() {
 		
-		DrawChart theChart = new DrawChart();
+		DrawChart theChart = new DrawChart(this.theChartPane);
 		
-		this.chartPane.getChildren().add(theChart);	
-				
 	}
 	
 	/**
