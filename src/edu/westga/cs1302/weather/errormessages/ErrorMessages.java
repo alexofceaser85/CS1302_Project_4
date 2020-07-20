@@ -33,4 +33,5 @@ public class ErrorMessages {
 	public static final String ALERT_CANNOT_FIND_THE_FIRST_WEATHER_DAY = "Cannot find the first weather day";
 	public static final String ALERT_CANNOT_FIND_THE_MIDDLE_WEATHER_DAY = "Cannot find the middle weather day";
 	public static final String ALERT_CANNOT_FIND_THE_LAST_WEATHER_DAY = "Cannot find the last weather day";
+	public static final String ALERT_CANNOT_FIND_THE_DATA_OF_A_EMPTY_MANAGER = "Cannot find the data of an empty manager";
 }

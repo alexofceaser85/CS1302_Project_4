@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 
 import edu.westga.cs1302.weather.chart.ChartData;
 import edu.westga.cs1302.weather.chart.DrawChart;
+import edu.westga.cs1302.weather.errormessages.ErrorMessages;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
@@ -32,6 +33,7 @@ import javafx.stage.Window;
 
 public class WeatherCodeBehind extends Pane {
 	
+	//Move all of this to the error messages
 	private static final String INFORMATION_ALERT_TITLE = "Weather Parser by Alex DeCesare";
 	private static final String INFORMATION_ALERT_CONTENT_TEXT = "This program parses weather data which is split by new lines for each day and double quotes for each peice of data";
 	private static final String NO_FILE_SELECTED_TITLE = "There is no file selected";
@@ -152,7 +154,13 @@ public class WeatherCodeBehind extends Pane {
 	
 	public void displayChart() {
 		
-		DrawChart theChart = this.theWeatherViewModel.drawTheChart(this.theChartPane);
+		try {
+			this.theWeatherViewModel.drawTheChart(this.theChartPane);
+		} catch (NullPointerException theNullPointerException) {
+			Alert theAlert = new Alert(AlertType.ERROR);
+			theAlert.setContentText(ErrorMessages.ALERT_CANNOT_FIND_THE_DATA_OF_A_EMPTY_MANAGER);
+			theAlert.showAndWait();
+		}
 		
 	}
 	
