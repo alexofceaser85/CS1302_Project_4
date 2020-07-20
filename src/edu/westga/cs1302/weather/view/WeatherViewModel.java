@@ -1,5 +1,7 @@
 package edu.westga.cs1302.weather.view;
 
+import java.text.DecimalFormat;
+
 import edu.westga.cs1302.weather.io.ReadWeatherFile;
 import edu.westga.cs1302.weather.model.WeatherForADay;
 import edu.westga.cs1302.weather.model.WeatherManager;
@@ -58,6 +60,15 @@ public class WeatherViewModel {
 		WeatherManager theManager = this.theReadWeatherFile.getTheWeatherManager();
 		
 		String theOutput = "The File Name: " + this.theReadWeatherFile.getFileNameNoExtension()
+				+ System.lineSeparator() + "---The Highest Temperature---"
+				+ System.lineSeparator() + theManager.getHighestTemperature().getTheDate() + " " + this.roundToOneDecimals(theManager.getHighestTemperature().getTheMaximumTemperature())
+				+ System.lineSeparator() + "---The Lowest Temperature---"
+				+ System.lineSeparator() + theManager.getLowestTemperature().getTheDate() + " " + this.roundToOneDecimals(theManager.getLowestTemperature().getTheMinimumTemperature())
+				+ System.lineSeparator() + "---The Average High Temperature---"
+				+ System.lineSeparator() + this.roundToTwoDecimals(theManager.getTheAverageHighTemperature())
+				+ System.lineSeparator() + "---The Average Low Temperature---"
+				+ System.lineSeparator() + this.roundToTwoDecimals(theManager.getTheAverageLowTemperature())
+				+ System.lineSeparator()
 				+ System.lineSeparator() + "---The First Day In The File---" 
 				+ System.lineSeparator() + theManager.getTheFirstDay() 
 				+ System.lineSeparator() + "---The Middle Day In The File---"
@@ -99,6 +110,22 @@ public class WeatherViewModel {
 		}
 		
 		return output;
+		
+	}
+	
+	private String roundToOneDecimals(double theDecimalToRound) {
+		
+		DecimalFormat theDecimalFormat = new DecimalFormat("##.0");
+		
+		return theDecimalFormat.format(theDecimalToRound);
+		
+	}
+	
+	private String roundToTwoDecimals(double theDecimalToRound) {
+		
+		DecimalFormat theDecimalFormat = new DecimalFormat("##.00");
+		
+		return theDecimalFormat.format(theDecimalToRound);
 		
 	}
 
