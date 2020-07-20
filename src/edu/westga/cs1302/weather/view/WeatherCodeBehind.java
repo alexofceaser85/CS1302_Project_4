@@ -4,6 +4,7 @@ import java.io.File;
 
 import java.nio.file.Paths;
 
+import edu.westga.cs1302.weather.chart.ChartData;
 import edu.westga.cs1302.weather.chart.DrawChart;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
@@ -78,7 +79,7 @@ public class WeatherCodeBehind extends Pane {
 	
 	@FXML
 	private void initialize() {
-		this.displayChart();
+		
 	}
 	
 	/**
@@ -103,6 +104,7 @@ public class WeatherCodeBehind extends Pane {
 			this.theWeatherViewModel.parseFile(theFile.getAbsolutePath());
 			
 			this.displayOutput();
+			this.displayChart();
 		} catch (NullPointerException theNullPointerException) {
 			Alert theAlert = new Alert(AlertType.INFORMATION);
 			theAlert.setTitle(NO_FILE_SELECTED_TITLE);
@@ -150,7 +152,7 @@ public class WeatherCodeBehind extends Pane {
 	
 	public void displayChart() {
 		
-		DrawChart theChart = new DrawChart(this.theChartPane);
+		DrawChart theChart = this.theWeatherViewModel.drawTheChart(this.theChartPane);
 		
 	}
 	

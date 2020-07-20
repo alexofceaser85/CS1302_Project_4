@@ -18,7 +18,7 @@ public class DrawChart extends Pane {
 	
 	private Line theXAxis;
 	private Line theYAxis;
-	private ChartData theChartMath;
+	private ChartData theChartData;
 
 	/**
 	 * This class draws the chart
@@ -27,13 +27,16 @@ public class DrawChart extends Pane {
 	 * @postcondition none
 	 * 
 	 * @param thePane the pane where the chart is
+	 * @param theData the data for the chart
 	 */
 	
-	public DrawChart(Pane thePane) {
+	public DrawChart(Pane thePane, ChartData theData) {
+		
+		//check if null
 		
 		super();
 		
-		this.theChartMath = new ChartData();
+		this.theChartData = theData;
 		this.theYAxis = new Line();
 		this.theXAxis = new Line();
 		

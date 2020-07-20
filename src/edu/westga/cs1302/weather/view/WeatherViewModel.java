@@ -2,9 +2,12 @@ package edu.westga.cs1302.weather.view;
 
 import java.text.DecimalFormat;
 
+import edu.westga.cs1302.weather.chart.ChartData;
+import edu.westga.cs1302.weather.chart.DrawChart;
 import edu.westga.cs1302.weather.io.ReadWeatherFile;
 import edu.westga.cs1302.weather.model.WeatherForADay;
 import edu.westga.cs1302.weather.model.WeatherManager;
+import javafx.scene.layout.Pane;
 
 /**
  * The view model class for the weather project
@@ -16,6 +19,8 @@ import edu.westga.cs1302.weather.model.WeatherManager;
 public class WeatherViewModel {
 	
 	private ReadWeatherFile theReadWeatherFile;
+	private ChartData theChartData;
+	private DrawChart theChart;
 	
 	/**
 	 * The constructor for the view model
@@ -47,12 +52,12 @@ public class WeatherViewModel {
 	}
 	
 	/**
-	 * Gets the parsed file
+	 * Sets the output of the parsed file
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
-	 * @return the parsed file
+	 * @return the output of the parsed file
 	 */
 	
 	public String setOutput() {
@@ -65,8 +70,29 @@ public class WeatherViewModel {
 				+ this.getOutputBody(theManager);
 		
 		return theOutput;
-		
 	}
+	
+	/**
+	 * 
+	 * Draws the chart
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @param theChartPane the chart pane to draw the chart on
+	 * @return 
+	 */
+	
+	public DrawChart drawTheChart(Pane theChartPane) {
+		
+		//Check preconditions
+		
+		this.theChartData = new ChartData(this.theReadWeatherFile.getTheWeatherManager());
+		this.theChart = new DrawChart(theChartPane, this.theChartData);
+		
+		return this.theChart;
+	}
+
 	
 	/**
 	 * Gets the weather days that match a location
