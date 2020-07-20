@@ -155,7 +155,7 @@ public class ChartData {
 	
 	public String getTheMiddleDay() {
 		
-		String theMiddleDay = this.getTheWeatherData().getTheFirstDay().getTheDate();
+		String theMiddleDay = this.getTheWeatherData().getTheMiddleDay().getTheDate();
 		
 		return theMiddleDay;
 		
@@ -172,7 +172,7 @@ public class ChartData {
 	
 	public String getTheLastDay() {
 		
-		String theLastDay = this.getTheWeatherData().getTheFirstDay().getTheDate();
+		String theLastDay = this.getTheWeatherData().getTheLastDay().getTheDate();
 		
 		return theLastDay;
 		
