@@ -59,22 +59,10 @@ public class WeatherViewModel {
 		
 		WeatherManager theManager = this.theReadWeatherFile.getTheWeatherManager();
 		
-		String theOutput = "The File Name: " + this.theReadWeatherFile.getFileNameNoExtension()
-				+ System.lineSeparator() + "---The Highest Temperature---"
-				+ System.lineSeparator() + theManager.getHighestTemperature().getTheDate() + " " + this.roundToOneDecimals(theManager.getHighestTemperature().getTheMaximumTemperature())
-				+ System.lineSeparator() + "---The Lowest Temperature---"
-				+ System.lineSeparator() + theManager.getLowestTemperature().getTheDate() + " " + this.roundToOneDecimals(theManager.getLowestTemperature().getTheMinimumTemperature())
-				+ System.lineSeparator() + "---The Average High Temperature---"
-				+ System.lineSeparator() + this.roundToTwoDecimals(theManager.getTheAverageHighTemperature())
-				+ System.lineSeparator() + "---The Average Low Temperature---"
-				+ System.lineSeparator() + this.roundToTwoDecimals(theManager.getTheAverageLowTemperature())
+		String theOutput = this.getOutputHeader(theManager)
 				+ System.lineSeparator()
-				+ System.lineSeparator() + "---The First Day In The File---" 
-				+ System.lineSeparator() + theManager.getTheFirstDay() 
-				+ System.lineSeparator() + "---The Middle Day In The File---"
-				+ System.lineSeparator() + theManager.getTheMiddleDay()
-				+ System.lineSeparator() + "---The Last Day in The File---"
-				+ System.lineSeparator() + theManager.getTheLastDay();
+				+ System.lineSeparator()
+				+ this.getOutputBody(theManager);
 		
 		return theOutput;
 		
@@ -128,5 +116,30 @@ public class WeatherViewModel {
 		return theDecimalFormat.format(theDecimalToRound);
 		
 	}
+	
+	private String getOutputHeader(WeatherManager theManager) {
+		
+		String theHeader = "The File Name: " + this.theReadWeatherFile.getFileNameNoExtension()
+			+ System.lineSeparator() + "---The Highest Temperature---"
+			+ System.lineSeparator() + "Date: " + theManager.getHighestTemperature().getTheDate() + " Temperature: " + this.roundToOneDecimals(theManager.getHighestTemperature().getTheMaximumTemperature())
+			+ System.lineSeparator() + "---The Lowest Temperature---"
+			+ System.lineSeparator() + "Date: " + theManager.getLowestTemperature().getTheDate() + " Temperature: " + this.roundToOneDecimals(theManager.getLowestTemperature().getTheMinimumTemperature())
+			+ System.lineSeparator() + "---The Average High Temperature---"
+			+ System.lineSeparator() + this.roundToTwoDecimals(theManager.getTheAverageHighTemperature())
+			+ System.lineSeparator() + "---The Average Low Temperature---"
+			+ System.lineSeparator() + this.roundToTwoDecimals(theManager.getTheAverageLowTemperature());
+		
+		return theHeader;
+	}
+	
+	private String getOutputBody(WeatherManager theManager) {
+		String theBody = "---The First Day In The File---" 
+				+ System.lineSeparator() + theManager.getTheFirstDay() 
+				+ System.lineSeparator() + "---The Middle Day In The File---"
+				+ System.lineSeparator() + theManager.getTheMiddleDay()
+				+ System.lineSeparator() + "---The Last Day in The File---"
+				+ System.lineSeparator() + theManager.getTheLastDay();
 
+		return theBody;
+	}
 }
