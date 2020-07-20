@@ -15,6 +15,9 @@ import javafx.scene.shape.Rectangle;
  */
 
 public class DrawChart extends Pane {
+	
+	private Line theXAxis;
+	private Line theYAxis;
 
 	/**
 	 * This class draws the chart
@@ -29,32 +32,85 @@ public class DrawChart extends Pane {
 		
 		super();
 		
+		this.theYAxis = new Line();
+		this.theXAxis = new Line();
+		
 		this.drawXAxis(thePane);
 		this.drawYAxis(thePane);
+		this.drawFirstDay(thePane);
+		this.drawSecondDay(thePane);
+		this.drawThirdDay(thePane);
 	}
 	
 	private void drawXAxis(Pane thePane) {
-		Line theXAxis = new Line();
 		
-		theXAxis.endYProperty().bind(thePane.heightProperty().subtract(60));
-		theXAxis.startYProperty().bind(thePane.heightProperty().subtract(60));
-		theXAxis.endXProperty().bind(thePane.widthProperty());
-		theXAxis.setStartX(60);
+		this.theXAxis.endYProperty().bind(thePane.heightProperty().subtract(60));
+		this.theXAxis.startYProperty().bind(thePane.heightProperty().subtract(60));
+		this.theXAxis.endXProperty().bind(thePane.widthProperty());
+		this.theXAxis.setStartX(60);
 
-		thePane.getChildren().add(theXAxis);
+		thePane.getChildren().add(this.theXAxis);
 	}
 	
 	private void drawYAxis(Pane thePane) {
-		Line theYAxis = new Line();
 		
-		theYAxis.setRotate(270);
-		theYAxis.startYProperty().bind(thePane.heightProperty().subtract(176));
-		theYAxis.endYProperty().bind(thePane.heightProperty().subtract(176));
-		theYAxis.setStartX(230);
-		theYAxis.setEndX(0);
-		theYAxis.setLayoutX(-55);
+		this.theYAxis.setRotate(270);
+		this.theYAxis.startYProperty().bind(thePane.heightProperty().subtract(176));
+		this.theYAxis.endYProperty().bind(thePane.heightProperty().subtract(176));
+		this.theYAxis.setStartX(230);
+		this.theYAxis.setEndX(0);
+		this.theYAxis.setLayoutX(-55);
 
-		thePane.getChildren().add(theYAxis);
+		thePane.getChildren().add(this.theYAxis);
+	}
+	
+	private void drawFirstDay(Pane thePane) {
+		
+		Line theFirstDayMark = new Line();
+		
+		theFirstDayMark.setRotate(270);
+		
+		theFirstDayMark.startYProperty().bind(thePane.heightProperty().subtract(60));
+		theFirstDayMark.endYProperty().bind(thePane.heightProperty().subtract(60));
+		theFirstDayMark.setEndX(40);
+		theFirstDayMark.setStartX(60);
+		
+		theFirstDayMark.layoutXProperty().bind(this.theXAxis.endXProperty().divide(4));
+		
+		thePane.getChildren().add(theFirstDayMark);
+		
+	}
+	
+	private void drawSecondDay(Pane thePane) {
+		
+		Line theFirstDayMark = new Line();
+		
+		theFirstDayMark.setRotate(270);
+		
+		theFirstDayMark.startYProperty().bind(thePane.heightProperty().subtract(60));
+		theFirstDayMark.endYProperty().bind(thePane.heightProperty().subtract(60));
+		theFirstDayMark.setEndX(40);
+		theFirstDayMark.setStartX(60);
+		theFirstDayMark.layoutXProperty().bind(this.theXAxis.endXProperty().divide(4).add(this.theXAxis.endXProperty().divide(4)));
+		
+		thePane.getChildren().add(theFirstDayMark);
+		
+	}
+	
+	private void drawThirdDay(Pane thePane) {
+		
+		Line theFirstDayMark = new Line();
+		
+		theFirstDayMark.setRotate(270);
+		
+		theFirstDayMark.startYProperty().bind(thePane.heightProperty().subtract(60));
+		theFirstDayMark.endYProperty().bind(thePane.heightProperty().subtract(60));
+		theFirstDayMark.setEndX(40);
+		theFirstDayMark.setStartX(60);
+		theFirstDayMark.layoutXProperty().bind(this.theXAxis.endXProperty().divide(2).add(this.theXAxis.endXProperty().divide(4)));
+		
+		thePane.getChildren().add(theFirstDayMark);
+		
 	}
 	
 }
