@@ -221,6 +221,31 @@ public class WeatherManager {
 	}
 	
 	/**
+	 * Gets the average high temperature
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return averageHighTemperature the average high temperature
+	 */
+	
+	public double getTheAverageHighTemperature() {
+		
+		double theTotalTemperature = 0;
+		
+		for (WeatherForADay current : this.getTheSortedWeather()) {
+			
+			theTotalTemperature += current.getTheMaximumTemperature();
+			
+		}
+		
+		double averageHighTemperature = theTotalTemperature / this.getTheSortedWeather().size();
+		
+		return averageHighTemperature;
+		
+	}
+	
+	/**
 	 * Gets the weather data
 	 * 
 	 * @precondition none
