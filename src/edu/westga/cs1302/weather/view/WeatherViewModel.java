@@ -80,7 +80,8 @@ public class WeatherViewModel {
 	 * @postcondition none
 	 * 
 	 * @param theChartPane the chart pane to draw the chart on
-	 * @return 
+	 * 
+	 * @return theChart the chart to dray
 	 */
 	
 	public DrawChart drawTheChart(Pane theChartPane) {
