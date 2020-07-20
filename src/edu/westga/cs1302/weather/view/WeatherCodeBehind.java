@@ -30,7 +30,6 @@ public class WeatherCodeBehind {
 	private static final String ARRAY_OUT_OF_BOUNDS_FILE_SELECTED_TITLE = "There was a problem parsing this file";
 	private static final String ARRAY_OUT_OF_BOUNDS_FILE_SELECTED_CONTENT_TEXT = "The format to parse this file is not valid";
 	
-
     @FXML
     private HBox thePane;
 
@@ -44,10 +43,13 @@ public class WeatherCodeBehind {
     private MenuItem buttonAbout;
 
     @FXML
-    private Label labelTheOutput;
-    
-    @FXML
     private TextArea textAreaTheLocationInput;
+
+    @FXML
+    private Label labelTheOutput;
+
+    @FXML
+    private Pane chartPane;
     
 	private WeatherViewModel theWeatherViewModel;
 	
