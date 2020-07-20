@@ -246,6 +246,31 @@ public class WeatherManager {
 	}
 	
 	/**
+	 * Gets the average low temperature
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return averageLowTemperature the average high temperature
+	 */
+	
+	public double getTheAverageLowTemperature() {
+		
+		double theTotalTemperature = 0;
+		
+		for (WeatherForADay current : this.getTheSortedWeather()) {
+			
+			theTotalTemperature += current.getTheMinimumTemperature();
+			
+		}
+		
+		double averageLowTemperature = theTotalTemperature / this.getTheSortedWeather().size();
+		
+		return averageLowTemperature;
+		
+	}
+	
+	/**
 	 * Gets the weather data
 	 * 
 	 * @precondition none
