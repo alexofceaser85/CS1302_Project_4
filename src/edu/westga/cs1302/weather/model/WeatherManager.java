@@ -177,7 +177,7 @@ public class WeatherManager {
 	
 	public WeatherForADay getHighestTemperature() {
 		
-		double theHighestTemperature = 0;
+		double theHighestTemperature = Integer.MIN_VALUE;
 		WeatherForADay theHighestWeather = null;
 		
 		for (WeatherForADay current : this.getTheSortedWeather()) {
@@ -190,6 +190,33 @@ public class WeatherManager {
 		}
 		
 		return theHighestWeather;
+		
+	}
+	
+	/**
+	 * Gets the day with the lowest temperature
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return the day with the lowest temperature
+	 */
+	
+	public WeatherForADay getLowestTemperature() {
+		
+		double theLowestTemperature = Integer.MAX_VALUE;
+		WeatherForADay theLowestWeather = null;
+		
+		for (WeatherForADay current : this.getTheSortedWeather()) {
+			
+			if (current.getTheMinimumTemperature() > theLowestTemperature) {
+				
+				theLowestTemperature = current.getTheMinimumTemperature();
+				theLowestWeather = current;
+			}
+		}
+		
+		return theLowestWeather;
 		
 	}
 	
