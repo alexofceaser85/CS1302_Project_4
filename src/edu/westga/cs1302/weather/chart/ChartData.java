@@ -127,4 +127,55 @@ public class ChartData {
 		
 	}
 	
+	/**
+	 * Gets the first date
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return theFirstDay the first day in the weather data
+	 */
+	
+	public String getTheFirstDay() {
+		
+		String theFirstDay = this.getTheWeatherData().getTheFirstDay().getTheDate();
+		
+		return theFirstDay;
+		
+	}
+	
+	/**
+	 * Gets the middle date
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return theMiddleDay the middle day in the weather data
+	 */
+	
+	public String getTheMiddleDay() {
+		
+		String theMiddleDay = this.getTheWeatherData().getTheFirstDay().getTheDate();
+		
+		return theMiddleDay;
+		
+	}
+	
+	/**
+	 * Gets the last date
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return theLastDay the last day in the weather data
+	 */
+	
+	public String getTheLastDay() {
+		
+		String theLastDay = this.getTheWeatherData().getTheFirstDay().getTheDate();
+		
+		return theLastDay;
+		
+	}
+	
 }
