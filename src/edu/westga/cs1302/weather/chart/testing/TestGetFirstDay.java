@@ -11,7 +11,7 @@ import edu.westga.cs1302.weather.model.WeatherManager;
 class TestGetFirstDay {
 
 	@Test
-	public void shouldNotGetFirstDayeOfEmptyManager() {
+	public void shouldNotGetFirstDayOfEmptyManager() {
 		
 		WeatherManager theManager = new WeatherManager();
 		ChartData theChartData = new ChartData(theManager);
@@ -22,7 +22,7 @@ class TestGetFirstDay {
 	}
 	
 	@Test
-	public void shouldGetFirstDayeOfManagerWithOneDay() {
+	public void shouldGetFirstDayOfManagerWithOneDay() {
 		
 		WeatherManager theManager = new WeatherManager();
 		
@@ -37,7 +37,7 @@ class TestGetFirstDay {
 	}
 	
 	@Test
-	public void shouldGetFirstDayeOfManagerWithMultipleDays() {
+	public void shouldGetFirstDayOfManagerWithMultipleDays() {
 		
 		WeatherManager theManager = new WeatherManager();
 		
