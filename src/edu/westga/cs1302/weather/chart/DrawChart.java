@@ -1,6 +1,8 @@
 package edu.westga.cs1302.weather.chart;
 
 import java.text.DecimalFormat;
+
+import edu.westga.cs1302.weather.errormessages.ErrorMessages;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
@@ -25,7 +27,7 @@ public class DrawChart extends Pane {
 	/**
 	 * This class draws the chart
 	 * 
-	 * @precondition none
+	 * @precondition thePane != null && theData != null
 	 * @postcondition none
 	 * 
 	 * @param thePane the pane where the chart is
@@ -34,9 +36,14 @@ public class DrawChart extends Pane {
 	
 	public DrawChart(Pane thePane, ChartData theData) {
 		
-		//check if null
-		
 		super();
+		
+		if (thePane == null) {
+			throw new IllegalArgumentException(ErrorMessages.CANNOT_DRAW_A_CHART_ON_A_NULL_CHART_PANE);
+		}
+		if (theData == null) {
+			throw new IllegalArgumentException(ErrorMessages.CANNOT_DRAW_A_CHART_BASED_ON_NULL_DATA);
+		}
 		
 		this.theChartData = theData;
 		this.thePane = thePane;

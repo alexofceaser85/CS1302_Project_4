@@ -114,10 +114,6 @@ public class WeatherViewModel {
 	
 	public DrawChart drawTheChart(Pane theChartPane) {
 		
-		if (theChartPane == null) {
-			throw new IllegalArgumentException(ErrorMessages.CANNOT_DRAW_A_CHART_ON_A_NULL_CHRT_PANE);
-		}
-		
 		this.theChartData = new ChartData(this.theReadWeatherFile.getTheWeatherManager());
 		this.theChart = new DrawChart(theChartPane, this.theChartData);
 		
