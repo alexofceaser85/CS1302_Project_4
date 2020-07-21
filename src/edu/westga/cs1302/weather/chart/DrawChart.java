@@ -1,6 +1,6 @@
 package edu.westga.cs1302.weather.chart;
-import java.text.DecimalFormat;
 
+import java.text.DecimalFormat;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;

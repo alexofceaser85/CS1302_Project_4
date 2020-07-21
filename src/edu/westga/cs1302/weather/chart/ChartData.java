@@ -1,7 +1,5 @@
 package edu.westga.cs1302.weather.chart;
 
-import java.io.FileReader;
-
 import edu.westga.cs1302.weather.model.WeatherManager;
 
 /**
