@@ -27,6 +27,11 @@
                            <accelerator>
                               <KeyCodeCombination alt="DOWN" code="O" control="UP" meta="UP" shift="UP" shortcut="UP" />
                            </accelerator></MenuItem>
+                        <MenuItem fx:id="saveTheFile" mnemonicParsing="false" onAction="#saveFile" text="Save">
+                           <accelerator>
+                              <KeyCodeCombination alt="DOWN" code="S" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
                         <MenuItem fx:id="buttonExit" mnemonicParsing="false" onAction="#exitTheApplication" text="Exit">
                            <accelerator>
                               <KeyCodeCombination alt="DOWN" code="E" control="UP" meta="UP" shift="UP" shortcut="UP" />

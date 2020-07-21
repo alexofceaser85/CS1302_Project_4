@@ -4,23 +4,15 @@ import java.io.File;
 
 import java.nio.file.Paths;
 
-import edu.westga.cs1302.weather.chart.ChartData;
-import edu.westga.cs1302.weather.chart.DrawChart;
 import edu.westga.cs1302.weather.errormessages.ErrorMessages;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
-import javafx.scene.SubScene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 
@@ -46,6 +38,9 @@ public class WeatherCodeBehind extends Pane {
 
     @FXML
     private MenuItem buttonOpenFile;
+
+    @FXML
+    private MenuItem saveTheFile;
 
     @FXML
     private MenuItem buttonExit;
@@ -117,6 +112,26 @@ public class WeatherCodeBehind extends Pane {
 			theAlert.showAndWait();
 		}
 
+	}
+	
+	/**
+	 * Chooses the file to save
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 */
+	
+	@FXML
+	public void saveFile() {
+		
+		Window stage = this.thePane.getScene().getWindow();
+		
+		FileChooser theFileChooser = new FileChooser();
+		
+		this.setFileChooserProperties(theFileChooser);
+		
+		File theFile = theFileChooser.showSaveDialog(stage);
+		
 	}
 	
 	/**
