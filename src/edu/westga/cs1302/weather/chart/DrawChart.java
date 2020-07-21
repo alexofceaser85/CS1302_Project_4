@@ -49,6 +49,12 @@ public class DrawChart extends Pane {
 		this.drawFirstDay(this.thePane);
 		this.drawSecondDay(this.thePane);
 		this.drawThirdDay(this.thePane);
+		
+		this.drawLowestTemperature(this.thePane);
+		this.drawTemperatureBetweenLowestAndMedian(this.thePane);
+		this.drawMedianTemperature(this.thePane);
+		this.drawTemperatureBetweenHighestAndMedian(this.thePane);
+		this.drawHighestTemperature(this.thePane);
 	}
 	
 	private void drawXAxis(Pane thePane) {
@@ -141,6 +147,71 @@ public class DrawChart extends Pane {
 		thePane.getChildren().add(theFirstDayMark);
 		thePane.getChildren().add(theThirdDayLabel);
 
+	}
+	
+	private void drawLowestTemperature(Pane thePane) {
+		
+		Line theLowestTemperatureMark = new Line();
+		
+		theLowestTemperatureMark.layoutYProperty().bind(this.theYAxis.endYProperty().add(100));
+		
+		theLowestTemperatureMark.setEndX(50);
+		theLowestTemperatureMark.setStartX(70);
+		
+		thePane.getChildren().add(theLowestTemperatureMark);
+		
+	}
+	
+	private void drawTemperatureBetweenLowestAndMedian(Pane thePane) {
+		
+		Line theBetweenLowestAndMedianMark = new Line();
+		
+		theBetweenLowestAndMedianMark.layoutYProperty().bind(this.theYAxis.endYProperty().add(50));
+		
+		theBetweenLowestAndMedianMark.setEndX(50);
+		theBetweenLowestAndMedianMark.setStartX(70);
+		
+		thePane.getChildren().add(theBetweenLowestAndMedianMark);
+		
+	}
+	
+	private void drawMedianTemperature(Pane thePane) {
+		
+		Line theMedianTemperatureMark = new Line();
+		
+		theMedianTemperatureMark.layoutYProperty().bind(this.theYAxis.endYProperty());
+		
+		theMedianTemperatureMark.setEndX(70);
+		theMedianTemperatureMark.setStartX(50);
+		
+		thePane.getChildren().add(theMedianTemperatureMark);
+		
+	}
+	
+	private void drawTemperatureBetweenHighestAndMedian(Pane thePane) {
+		
+		Line theLowestTemperatureMark = new Line();
+		
+		theLowestTemperatureMark.layoutYProperty().bind(this.theYAxis.endYProperty().subtract(50));
+		
+		theLowestTemperatureMark.setEndX(50);
+		theLowestTemperatureMark.setStartX(70);
+		
+		thePane.getChildren().add(theLowestTemperatureMark);
+		
+	}
+	
+	private void drawHighestTemperature(Pane thePane) {
+		
+		Line theLowestTemperatureMark = new Line();
+		
+		theLowestTemperatureMark.layoutYProperty().bind(this.theYAxis.endYProperty().subtract(100));
+		
+		theLowestTemperatureMark.setEndX(50);
+		theLowestTemperatureMark.setStartX(70);
+		
+		thePane.getChildren().add(theLowestTemperatureMark);
+		
 	}
 	
 }
