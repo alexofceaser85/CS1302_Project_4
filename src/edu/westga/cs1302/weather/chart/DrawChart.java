@@ -1,12 +1,10 @@
 package edu.westga.cs1302.weather.chart;
-
-import java.awt.Window;
+import java.text.DecimalFormat;
 
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
 
 /**
  * This class draws the chart
@@ -21,6 +19,8 @@ public class DrawChart extends Pane {
 	private Line theYAxis;
 	private ChartData theChartData;
 	private Pane thePane;
+	private Line theHighestTemperatureMark;
+	private Line theLowestTemperatureMark;
 
 	/**
 	 * This class draws the chart
@@ -55,6 +55,7 @@ public class DrawChart extends Pane {
 		this.drawMedianTemperature(this.thePane);
 		this.drawTemperatureBetweenHighestAndMedian(this.thePane);
 		this.drawHighestTemperature(this.thePane);
+		this.drawHighTemperatureForFirstDay(this.thePane);
 	}
 	
 	private void drawXAxis(Pane thePane) {
@@ -151,66 +152,114 @@ public class DrawChart extends Pane {
 	
 	private void drawLowestTemperature(Pane thePane) {
 		
-		Line theLowestTemperatureMark = new Line();
+		this.theLowestTemperatureMark = new Line();
+		Label theLowestTemperatureLabel = new Label();
 		
-		theLowestTemperatureMark.layoutYProperty().bind(this.theYAxis.endYProperty().add(100));
+		this.theLowestTemperatureMark.layoutYProperty().bind(this.theYAxis.endYProperty().add(100));
+		theLowestTemperatureLabel.layoutYProperty().bind(this.theYAxis.endYProperty().add(90));
 		
-		theLowestTemperatureMark.setEndX(50);
-		theLowestTemperatureMark.setStartX(70);
+		theLowestTemperatureLabel.setText(this.formatDouble(this.theChartData.getTheLowestTemperature()));
 		
-		thePane.getChildren().add(theLowestTemperatureMark);
+		this.theLowestTemperatureMark.setEndX(50);
+		this.theLowestTemperatureMark.setStartX(70);
 		
+		thePane.getChildren().add(this.theLowestTemperatureMark);
+		thePane.getChildren().add(theLowestTemperatureLabel);
 	}
 	
 	private void drawTemperatureBetweenLowestAndMedian(Pane thePane) {
 		
 		Line theBetweenLowestAndMedianMark = new Line();
+		Label betweenLowAndMedianTemperatureLabel = new Label();
 		
 		theBetweenLowestAndMedianMark.layoutYProperty().bind(this.theYAxis.endYProperty().add(50));
+		betweenLowAndMedianTemperatureLabel.layoutYProperty().bind(this.theYAxis.endYProperty().add(40));
 		
 		theBetweenLowestAndMedianMark.setEndX(50);
 		theBetweenLowestAndMedianMark.setStartX(70);
 		
-		thePane.getChildren().add(theBetweenLowestAndMedianMark);
+		betweenLowAndMedianTemperatureLabel.setText(this.formatDouble(this.theChartData.getTemperatureBetweenMedianAndLowest()));
 		
+		thePane.getChildren().add(theBetweenLowestAndMedianMark);
+		thePane.getChildren().add(betweenLowAndMedianTemperatureLabel);
 	}
 	
 	private void drawMedianTemperature(Pane thePane) {
 		
 		Line theMedianTemperatureMark = new Line();
+		Label theMedianTemperatureLabel = new Label();
 		
 		theMedianTemperatureMark.layoutYProperty().bind(this.theYAxis.endYProperty());
+		theMedianTemperatureLabel.layoutYProperty().bind(this.theYAxis.endYProperty().subtract(10));
 		
+		theMedianTemperatureLabel.setText(this.formatDouble(this.theChartData.getTheMedianTemperature()));
 		theMedianTemperatureMark.setEndX(70);
 		theMedianTemperatureMark.setStartX(50);
 		
 		thePane.getChildren().add(theMedianTemperatureMark);
-		
+		thePane.getChildren().add(theMedianTemperatureLabel);
 	}
 	
 	private void drawTemperatureBetweenHighestAndMedian(Pane thePane) {
 		
-		Line theLowestTemperatureMark = new Line();
+		Line betweenHighestAndMedianMark = new Line();
+		Label betweenHighestAndMedianTemperatureLabel = new Label();
 		
-		theLowestTemperatureMark.layoutYProperty().bind(this.theYAxis.endYProperty().subtract(50));
+		betweenHighestAndMedianMark.layoutYProperty().bind(this.theYAxis.endYProperty().subtract(50));
+		betweenHighestAndMedianTemperatureLabel.layoutYProperty().bind(this.theYAxis.endYProperty().subtract(60));
 		
-		theLowestTemperatureMark.setEndX(50);
-		theLowestTemperatureMark.setStartX(70);
+		betweenHighestAndMedianTemperatureLabel.setText(this.formatDouble(this.theChartData.getTemperatureBetweenMedianAndHighest()));
 		
-		thePane.getChildren().add(theLowestTemperatureMark);
+		betweenHighestAndMedianMark.setEndX(50);
+		betweenHighestAndMedianMark.setStartX(70);
 		
+		thePane.getChildren().add(betweenHighestAndMedianMark);
+		thePane.getChildren().add(betweenHighestAndMedianTemperatureLabel);
 	}
 	
 	private void drawHighestTemperature(Pane thePane) {
 		
-		Line theLowestTemperatureMark = new Line();
+		this.theHighestTemperatureMark = new Line();
+		Label theHighestTemperatureLabel = new Label();
 		
-		theLowestTemperatureMark.layoutYProperty().bind(this.theYAxis.endYProperty().subtract(100));
+		this.theHighestTemperatureMark.layoutYProperty().bind(this.theYAxis.endYProperty().subtract(100));
+		theHighestTemperatureLabel.layoutYProperty().bind(this.theYAxis.endYProperty().subtract(110));
 		
-		theLowestTemperatureMark.setEndX(50);
-		theLowestTemperatureMark.setStartX(70);
+		theHighestTemperatureLabel.setText(this.formatDouble(this.theChartData.getTheHighestTemperature()));
 		
-		thePane.getChildren().add(theLowestTemperatureMark);
+		this.theHighestTemperatureMark.setEndX(50);
+		this.theHighestTemperatureMark.setStartX(70);
+		
+		thePane.getChildren().add(this.theHighestTemperatureMark);
+		thePane.getChildren().add(theHighestTemperatureLabel);
+	}
+	
+	private void drawHighTemperatureForFirstDay(Pane thePane) {
+		
+		Circle theCircle = new Circle();
+		
+		theCircle.setRadius(5);
+		theCircle.layoutXProperty().bind(this.theXAxis.endXProperty().divide(3).add(this.theXAxis.getLayoutX()));
+		theCircle.layoutYProperty().bind(this.theYAxis.startYProperty().add(this.theYAxis.getStartY()));
+		
+		theCircle.setTranslateY(-15 - (this.getTemperatureAndHeightRatio()));
+
+		System.out.println(this.theYAxis.startYProperty().add(this.theYAxis.getStartY()));
+		
+		thePane.getChildren().add(theCircle);
+	}
+	
+	private String formatDouble(double theDoubleToConvert) {
+		
+		DecimalFormat theDecimalFormat = new DecimalFormat("##.00");
+		
+		return theDecimalFormat.format(theDoubleToConvert);
+		
+	}
+	
+	private double getTemperatureAndHeightRatio() {
+
+		return ((this.theYAxis.getEndY() + this.theYAxis.getEndY()) / (this.theChartData.getTheHighestTemperature() + this.theChartData.getTheLowestTemperature()));
 		
 	}
 	
