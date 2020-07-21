@@ -37,4 +37,11 @@ public class ErrorMessages {
 	public static final String ALERT_CANNOT_FIND_THE_MIDDLE_WEATHER_DAY = "Cannot find the middle weather day";
 	public static final String ALERT_CANNOT_FIND_THE_LAST_WEATHER_DAY = "Cannot find the last weather day";
 	public static final String ALERT_CANNOT_FIND_THE_DATA_OF_A_EMPTY_MANAGER = "Cannot find the data of an empty manager";
+	
+	public static final String NO_FILE_SELECTED_TITLE = "There is no file selected";
+	public static final String NO_FILE_SELECTED_CONTENT_TEXT = "Please select a file to parse";
+	public static final String ARRAY_OUT_OF_BOUNDS_FILE_SELECTED_TITLE = "There was a problem parsing this file";
+	public static final String ARRAY_OUT_OF_BOUNDS_FILE_SELECTED_CONTENT_TEXT = "The format to parse this file is not valid";	
+	public static final String CANNOT_SAVE_FILE_TITLE = "Cannot Save The File";
+	public static final String CANNOT_SAVE_A_FILE_BEFORE_IT_IS_OPENED_CONTENT_TEXT = "Cannot save a file that was never opened, please open a file first";
 }
