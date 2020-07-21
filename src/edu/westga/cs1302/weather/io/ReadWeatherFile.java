@@ -62,6 +62,21 @@ public class ReadWeatherFile {
 	}
 	
 	/**
+	 * Gets the file name
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return the file name
+	 */
+	
+	public String getFileName() {
+		
+		return this.theFileName;
+		
+	}
+	
+	/**
 	 * Sets the file
 	 * 
 	 * @precondition none
