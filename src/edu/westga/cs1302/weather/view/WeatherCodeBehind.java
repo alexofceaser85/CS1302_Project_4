@@ -32,6 +32,8 @@ public class WeatherCodeBehind extends Pane {
 	private static final String NO_FILE_SELECTED_CONTENT_TEXT = "Please select a file to parse";
 	private static final String ARRAY_OUT_OF_BOUNDS_FILE_SELECTED_TITLE = "There was a problem parsing this file";
 	private static final String ARRAY_OUT_OF_BOUNDS_FILE_SELECTED_CONTENT_TEXT = "The format to parse this file is not valid";	
+	private static final String CANNOT_SAVE_FILE_TITLE = "Cannot Save The File";
+	private static final String CANNOT_SAVE_A_FILE_BEFORE_IT_IS_OPENED_CONTENT_TEXT = "Cannot save a file that was never opened, please open a file first";
 
     @FXML
     private HBox thePane;
@@ -58,6 +60,7 @@ public class WeatherCodeBehind extends Pane {
     private Pane theChartPane;
     
 	private WeatherViewModel theWeatherViewModel;
+	private File theFile;
 	
 	/**
 	 * The constructor for the code behind method
@@ -94,14 +97,14 @@ public class WeatherCodeBehind extends Pane {
 			
 			this.setFileChooserProperties(theFileChooser);
 			
-			File theFile = theFileChooser.showOpenDialog(stage);
+			this.theFile = theFileChooser.showOpenDialog(stage);
 			
-			this.theWeatherViewModel.parseFile(theFile.getAbsolutePath());
+			this.theWeatherViewModel.parseFile(this.theFile.getAbsolutePath());
 			
 			this.displayOutput();
 			this.displayChart();
 		} catch (NullPointerException theNullPointerException) {
-			Alert theAlert = new Alert(AlertType.INFORMATION);
+			Alert theAlert = new Alert(AlertType.ERROR);
 			theAlert.setTitle(NO_FILE_SELECTED_TITLE);
 			theAlert.setContentText(NO_FILE_SELECTED_CONTENT_TEXT);
 			theAlert.showAndWait();
@@ -124,13 +127,26 @@ public class WeatherCodeBehind extends Pane {
 	@FXML
 	public void saveFile() {
 		
-		Window stage = this.thePane.getScene().getWindow();
+		try {
+			Window stage = this.thePane.getScene().getWindow();
+			
+			FileChooser theFileChooser = new FileChooser();
+			
+			this.setFileChooserProperties(theFileChooser);
+			
+			File theFile = theFileChooser.showSaveDialog(stage);
 		
-		FileChooser theFileChooser = new FileChooser();
-		
-		this.setFileChooserProperties(theFileChooser);
-		
-		File theFile = theFileChooser.showSaveDialog(stage);
+			this.theWeatherViewModel.saveFile(theFile, this.theFile);
+		} catch (NullPointerException theNullPointerException) {
+			Alert theAlert = new Alert(AlertType.ERROR);
+			theAlert.setTitle(CANNOT_SAVE_FILE_TITLE);
+			theAlert.setContentText(CANNOT_SAVE_A_FILE_BEFORE_IT_IS_OPENED_CONTENT_TEXT);
+			theAlert.showAndWait();
+		} catch (IllegalArgumentException theIllegalArgumentException) {
+			Alert theAlert = new Alert(AlertType.ERROR);
+			theAlert.setContentText(theIllegalArgumentException.getMessage());
+			theAlert.showAndWait();
+		}
 		
 	}
 	

@@ -1,10 +1,13 @@
 package edu.westga.cs1302.weather.view;
 
+import java.io.File;
 import java.text.DecimalFormat;
 
 import edu.westga.cs1302.weather.chart.ChartData;
 import edu.westga.cs1302.weather.chart.DrawChart;
+import edu.westga.cs1302.weather.errormessages.ErrorMessages;
 import edu.westga.cs1302.weather.io.ReadWeatherFile;
+import edu.westga.cs1302.weather.io.SaveWeatherFile;
 import edu.westga.cs1302.weather.model.WeatherForADay;
 import edu.westga.cs1302.weather.model.WeatherManager;
 import javafx.scene.layout.Pane;
@@ -21,6 +24,7 @@ public class WeatherViewModel {
 	private ReadWeatherFile theReadWeatherFile;
 	private ChartData theChartData;
 	private DrawChart theChart;
+	private SaveWeatherFile theSaveWeatherFile;
 	
 	/**
 	 * The constructor for the view model
@@ -32,6 +36,29 @@ public class WeatherViewModel {
 	public WeatherViewModel() {
 		
 		this.theReadWeatherFile = new ReadWeatherFile();
+		this.theSaveWeatherFile = new SaveWeatherFile();
+		
+	}
+	
+	/**
+	 * Saves the file given as a parameter
+	 * 
+	 * @precondition none
+	 * @postcondition none 
+	 * 
+	 * @param theFile
+	 */
+	
+	public void saveFile(File theNewFile, File theOldFile) {
+		
+		if (theNewFile == null) {
+			throw new IllegalArgumentException(ErrorMessages.CANNOT_SAVE_TO_A_NULL_FILE);
+		}
+		if (theOldFile == null) {
+			throw new IllegalArgumentException(ErrorMessages.CANNOT_SAVE_A_NULL_FILE);
+		}
+		
+		this.theSaveWeatherFile.saveFile(theNewFile, theOldFile);
 		
 	}
 	
