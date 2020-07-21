@@ -38,6 +38,8 @@ public class ErrorMessages {
 	public static final String ALERT_CANNOT_FIND_THE_LAST_WEATHER_DAY = "Cannot find the last weather day";
 	public static final String ALERT_CANNOT_FIND_THE_DATA_OF_A_EMPTY_MANAGER = "Cannot find the data of an empty manager";
 	
+	public static final String CANNOT_DRAW_A_CHART_ON_A_NULL_CHRT_PANE = "Cannot draw a chart on a null chart pane";
+	
 	public static final String NO_FILE_SELECTED_TITLE = "There is no file selected";
 	public static final String NO_FILE_SELECTED_CONTENT_TEXT = "Please select a file to parse";
 	public static final String ARRAY_OUT_OF_BOUNDS_FILE_SELECTED_TITLE = "There was a problem parsing this file";

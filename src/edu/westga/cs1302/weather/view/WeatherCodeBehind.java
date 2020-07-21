@@ -106,6 +106,10 @@ public class WeatherCodeBehind extends Pane {
 			theAlert.setTitle(ErrorMessages.ARRAY_OUT_OF_BOUNDS_FILE_SELECTED_TITLE);
 			theAlert.setContentText(ErrorMessages.ARRAY_OUT_OF_BOUNDS_FILE_SELECTED_CONTENT_TEXT);
 			theAlert.showAndWait();
+		} catch (IllegalArgumentException theIllegalArgumentException) {
+			Alert theAlert = new Alert(AlertType.ERROR);
+			theAlert.setContentText(theIllegalArgumentException.getMessage());
+			theAlert.showAndWait();
 		}
 
 	}
