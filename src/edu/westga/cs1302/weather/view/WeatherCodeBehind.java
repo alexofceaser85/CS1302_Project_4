@@ -62,8 +62,6 @@ public class WeatherCodeBehind extends Pane {
     @FXML
     private Pane theChartPane;
     
-    private GraphicsContext theGraphicsContent;
-    
 	private WeatherViewModel theWeatherViewModel;
 	
 	/**

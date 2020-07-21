@@ -2,6 +2,7 @@ package edu.westga.cs1302.weather.chart;
 
 import java.awt.Window;
 
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
@@ -19,6 +20,7 @@ public class DrawChart extends Pane {
 	private Line theXAxis;
 	private Line theYAxis;
 	private ChartData theChartData;
+	private Pane thePane;
 
 	/**
 	 * This class draws the chart
@@ -37,14 +39,16 @@ public class DrawChart extends Pane {
 		super();
 		
 		this.theChartData = theData;
+		this.thePane = thePane;
+		this.thePane.getChildren().clear();
 		this.theYAxis = new Line();
 		this.theXAxis = new Line();
 		
-		this.drawXAxis(thePane);
-		this.drawYAxis(thePane);
-		this.drawFirstDay(thePane);
-		this.drawSecondDay(thePane);
-		this.drawThirdDay(thePane);
+		this.drawXAxis(this.thePane);
+		this.drawYAxis(this.thePane);
+		this.drawFirstDay(this.thePane);
+		this.drawSecondDay(this.thePane);
+		this.drawThirdDay(this.thePane);
 	}
 	
 	private void drawXAxis(Pane thePane) {
@@ -72,6 +76,7 @@ public class DrawChart extends Pane {
 	private void drawFirstDay(Pane thePane) {
 		
 		Line theFirstDayMark = new Line();
+		Label theFirstDayLabel = new Label();
 		
 		theFirstDayMark.setRotate(270);
 		
@@ -80,8 +85,13 @@ public class DrawChart extends Pane {
 		theFirstDayMark.setEndX(40);
 		theFirstDayMark.setStartX(60);
 		
-		theFirstDayMark.layoutXProperty().bind(this.theXAxis.endXProperty().divide(4).add(this.theXAxis.getLayoutX()));
+		theFirstDayLabel.layoutYProperty().bind(thePane.heightProperty().subtract(50));
+		theFirstDayLabel.layoutXProperty().bind(this.theXAxis.endXProperty().divide(4).add(this.theXAxis.getLayoutX()));
 		
+		theFirstDayMark.layoutXProperty().bind(this.theXAxis.endXProperty().divide(4).add(this.theXAxis.getLayoutX()));
+		theFirstDayLabel.setText(this.theChartData.getTheFirstDay());
+		
+		thePane.getChildren().add(theFirstDayLabel);
 		thePane.getChildren().add(theFirstDayMark);
 		
 	}
@@ -89,6 +99,7 @@ public class DrawChart extends Pane {
 	private void drawSecondDay(Pane thePane) {
 		
 		Line theFirstDayMark = new Line();
+		Label theSecondDayLabel = new Label();
 		
 		theFirstDayMark.setRotate(270);
 		
@@ -96,15 +107,22 @@ public class DrawChart extends Pane {
 		theFirstDayMark.endYProperty().bind(thePane.heightProperty().subtract(60));
 		theFirstDayMark.setEndX(40);
 		theFirstDayMark.setStartX(60);
-		theFirstDayMark.layoutXProperty().bind(this.theXAxis.endXProperty().divide(4).add(this.theXAxis.endXProperty().divide(4)).add(this.theXAxis.getLayoutX()));
+		
+		theSecondDayLabel.layoutYProperty().bind(thePane.heightProperty().subtract(50));
+		theSecondDayLabel.layoutXProperty().bind(this.theXAxis.endXProperty().divide(4).multiply(2).add(this.theXAxis.getLayoutX()));
+		
+		theFirstDayMark.layoutXProperty().bind(this.theXAxis.endXProperty().divide(4).multiply(2).add(this.theXAxis.getLayoutX()));
+		theSecondDayLabel.setText(this.theChartData.getTheMiddleDay());
 		
 		thePane.getChildren().add(theFirstDayMark);
+		thePane.getChildren().add(theSecondDayLabel);
 		
 	}
 	
 	private void drawThirdDay(Pane thePane) {
 		
 		Line theFirstDayMark = new Line();
+		Label theThirdDayLabel = new Label();
 		
 		theFirstDayMark.setRotate(270);
 		
@@ -112,10 +130,17 @@ public class DrawChart extends Pane {
 		theFirstDayMark.endYProperty().bind(thePane.heightProperty().subtract(60));
 		theFirstDayMark.setEndX(40);
 		theFirstDayMark.setStartX(60);
-		theFirstDayMark.layoutXProperty().bind(this.theXAxis.endXProperty().divide(2).add(this.theXAxis.endXProperty().divide(4)).add(this.theXAxis.getLayoutX()));
+		
+		theThirdDayLabel.layoutYProperty().bind(thePane.heightProperty().subtract(50));
+		theThirdDayLabel.layoutXProperty().bind(this.theXAxis.endXProperty().divide(4).multiply(3).add(this.theXAxis.getLayoutX()));
+		
+		theFirstDayMark.layoutXProperty().bind(this.theXAxis.endXProperty().divide(4).multiply(3).add(this.theXAxis.getLayoutX()));
+		
+		theThirdDayLabel.setText(this.theChartData.getTheLastDay());
 		
 		thePane.getChildren().add(theFirstDayMark);
-		
+		thePane.getChildren().add(theThirdDayLabel);
+
 	}
 	
 }
