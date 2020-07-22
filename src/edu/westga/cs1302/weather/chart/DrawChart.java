@@ -52,17 +52,28 @@ public class DrawChart extends Pane {
 		this.theYAxis = new Line();
 		this.theXAxis = new Line();
 		
+		this.drawXAxis();
+		this.drawYAxis();
+		this.drawTemperatureForEachDay();
+	}
+
+	private void drawXAxis() {
 		this.drawXAxis(this.thePane);
 		this.drawYAxis(this.thePane);
 		this.drawFirstDay(this.thePane);
 		this.drawSecondDay(this.thePane);
 		this.drawThirdDay(this.thePane);
-		
+	}
+
+	private void drawYAxis() {
 		this.drawLowestTemperature(this.thePane);
 		this.drawTemperatureBetweenLowestAndMedian(this.thePane);
 		this.drawMedianTemperature(this.thePane);
 		this.drawTemperatureBetweenHighestAndMedian(this.thePane);
 		this.drawHighestTemperature(this.thePane);
+	}
+
+	private void drawTemperatureForEachDay() {
 		this.drawLowTemperatureForFirstDay(this.thePane);
 		this.drawHighTemperatureForFirstDay(this.thePane);
 		this.drawHighTemperatureForSecondDay(this.thePane);
@@ -337,13 +348,14 @@ public class DrawChart extends Pane {
 	private void drawAverageHighTemperature(Pane thePane) {
 		
 		Line theLine = new Line();
+		theLine.setFill(Color.RED);
 		
-		this.theXAxis.endYProperty().bind(thePane.heightProperty().subtract(60));
-		this.theXAxis.startYProperty().bind(thePane.heightProperty().subtract(60));
-		this.theXAxis.endXProperty().bind(thePane.widthProperty());
-		this.theXAxis.setStartX(60);
+		theLine.endYProperty().bind(thePane.heightProperty().subtract(60));
+		theLine.startYProperty().bind(thePane.heightProperty().subtract(60));
+		theLine.endXProperty().bind(thePane.widthProperty());
+		theLine.setStartX(60);
 		
-		this.theXAxis.setTranslateX(this.theChartData.getTheWeatherData().getTheAverageHighTemperature());
+		this.theXAxis.setTranslateY(0 - this.getTemperatureAndHeightRatio(this.theChartData.getTheWeatherData().getTheAverageHighTemperature()) * this.theXAxis.getEndY());
 		
 		thePane.getChildren().add(theLine);
 		
