@@ -51,7 +51,7 @@ public class DrawChart extends Pane {
 		this.thePane.getChildren().clear();
 		this.theYAxis = new Line();
 		this.theXAxis = new Line();
-		
+
 		this.drawXAxis();
 		this.drawYAxis();
 		this.drawTemperatureForEachDay();
