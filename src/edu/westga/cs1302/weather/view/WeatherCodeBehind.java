@@ -116,7 +116,6 @@ public class WeatherCodeBehind extends Pane {
 			theAlert.setContentText(ErrorMessages.CANNOT_READ_THE_FILE);
 			theAlert.showAndWait();
 		}
-
 	}
 	
 	/**
