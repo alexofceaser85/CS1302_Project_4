@@ -47,19 +47,15 @@ public class WeatherViewModel {
 	 * @postcondition none 
 	 * 
 	 * @param theNewFile the file to save to
-	 * @param theOldFile the file to save
 	 */
 	
-	public void saveFile(File theNewFile, File theOldFile) {
+	public void saveFile(File theNewFile) {
 		
 		if (theNewFile == null) {
 			throw new IllegalArgumentException(ErrorMessages.CANNOT_SAVE_TO_A_NULL_FILE);
 		}
-		if (theOldFile == null) {
-			throw new IllegalArgumentException(ErrorMessages.CANNOT_SAVE_A_NULL_FILE);
-		}
 		
-		this.theSaveWeatherFile.saveFile(theNewFile, theOldFile);
+		this.theSaveWeatherFile.saveFile(theNewFile, this.theReadWeatherFile.getTheWeatherManager());
 		
 	}
 	

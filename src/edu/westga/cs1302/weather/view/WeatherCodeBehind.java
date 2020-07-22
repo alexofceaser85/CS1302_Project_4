@@ -56,6 +56,7 @@ public class WeatherCodeBehind extends Pane {
 	private WeatherViewModel theWeatherViewModel;
 	private File theFile;
 	
+	
 	/**
 	 * The constructor for the code behind method
 	 * 
@@ -137,7 +138,7 @@ public class WeatherCodeBehind extends Pane {
 			
 			File theFile = theFileChooser.showSaveDialog(stage);
 		
-			this.theWeatherViewModel.saveFile(theFile, this.theFile);
+			this.theWeatherViewModel.saveFile(theFile);
 		} catch (NullPointerException theNullPointerException) {
 			Alert theAlert = new Alert(AlertType.ERROR);
 			theAlert.setTitle(ErrorMessages.CANNOT_SAVE_FILE_TITLE);

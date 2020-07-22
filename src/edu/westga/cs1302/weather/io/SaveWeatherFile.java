@@ -3,8 +3,11 @@ package edu.westga.cs1302.weather.io;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
+import edu.westga.cs1302.weather.model.WeatherForADay;
+import edu.westga.cs1302.weather.model.WeatherManager;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
@@ -37,24 +40,22 @@ public class SaveWeatherFile {
 	 * @postcondition none
 	 * 
 	 * @param theFileToSave the new file to add
-	 * @param theInterfaceFile the file to save
+	 * @param theWeatherData the weather data
 	 */
 	
-	public void saveFile(File theFileToSave, File theInterfaceFile) {
+	public void saveFile(File theFileToSave, WeatherManager theWeatherData) {
 		
 		try {
 			File theFile = new File(theFileToSave.getAbsolutePath());
 			String data = "";
 			
 			PrintWriter savedFile = new PrintWriter(theFile);
-			Scanner inFileText = new Scanner(theInterfaceFile);
 			
-			while (inFileText.hasNextLine()) {
-				data += inFileText.nextLine() + System.lineSeparator();
+			for (WeatherForADay current : theWeatherData.getTheSortedWeather()) {
+				data += current.toString() + System.lineSeparator();
 			}
 
 			savedFile.write(data);
-			inFileText.close();
 			savedFile.close();
 			
 		} catch (FileNotFoundException theFileNotFoundException) {
