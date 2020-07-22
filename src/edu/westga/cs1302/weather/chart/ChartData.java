@@ -176,4 +176,106 @@ public class ChartData {
 		
 	}
 	
+	/**
+	 * Gets the first day low temperature
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return theFirstDayLow the low temperature for the first day
+	 */
+	
+	public double getTheFirstDayLowTemperature() {
+		
+		double theFirstDayLow = this.getTheWeatherData().getTheFirstDay().getTheMinimumTemperature();
+		
+		return theFirstDayLow;
+		
+	}
+	
+	/**
+	 * Gets the first day high temperature
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return theFirstDayHigh the high temperature for the first day
+	 */
+	
+	public double getTheFirstDayHighTemperature() {
+		
+		double theFirstDayHigh = this.getTheWeatherData().getTheFirstDay().getTheMaximumTemperature();
+		
+		return theFirstDayHigh;
+		
+	}
+	
+	/**
+	 * Gets the second day low temperature
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return theSecondDayLow the low temperature for the second day
+	 */
+	
+	public double getTheSecondDayLowTemperature() {
+		
+		double theSecondDayLow = this.getTheWeatherData().getTheMiddleDay().getTheMinimumTemperature();
+		
+		return theSecondDayLow;
+		
+	}
+	
+	/**
+	 * Gets the second day high temperature
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return theSecondDayHigh the high temperature for the second day
+	 */
+	
+	public double getTheSecondDayHighTemperature() {
+		
+		double theSecondDayHigh = this.getTheWeatherData().getTheMiddleDay().getTheMaximumTemperature();
+		
+		return theSecondDayHigh;
+		
+	}
+	
+	/**
+	 * Gets the third day low temperature
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return theThirdDayLow the low temperature for the third day
+	 */
+	
+	public double getTheThirdDayLowTemperature() {
+		
+		double theSecondDayLow = this.getTheWeatherData().getTheLastDay().getTheMinimumTemperature();
+		
+		return theSecondDayLow;
+		
+	}
+	
+	/**
+	 * Gets the third day high temperature
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return theThirdDayHigh the high temperature for the third day
+	 */
+	
+	public double getTheThirdDayHighTemperature() {
+		
+		double theThirdDayHigh = this.getTheWeatherData().getTheLastDay().getTheMaximumTemperature();
+		
+		return theThirdDayHigh;
+		
+	}
+	
 }

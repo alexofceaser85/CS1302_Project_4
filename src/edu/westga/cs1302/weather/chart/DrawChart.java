@@ -5,6 +5,7 @@ import java.text.DecimalFormat;
 import edu.westga.cs1302.weather.errormessages.ErrorMessages;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 
@@ -62,7 +63,13 @@ public class DrawChart extends Pane {
 		this.drawMedianTemperature(this.thePane);
 		this.drawTemperatureBetweenHighestAndMedian(this.thePane);
 		this.drawHighestTemperature(this.thePane);
+		this.drawLowTemperatureForFirstDay(this.thePane);
 		this.drawHighTemperatureForFirstDay(this.thePane);
+		this.drawHighTemperatureForSecondDay(this.thePane);
+		this.drawLowTemperatureForSecondDay(this.thePane);
+		this.drawHighTemperatureForThirdDay(this.thePane);
+		this.drawLowTemperatureForThirdDay(this.thePane);
+		this.drawAverageHighTemperature(this.thePane);
 	}
 	
 	private void drawXAxis(Pane thePane) {
@@ -241,19 +248,105 @@ public class DrawChart extends Pane {
 		thePane.getChildren().add(theHighestTemperatureLabel);
 	}
 	
-	private void drawHighTemperatureForFirstDay(Pane thePane) {
+	private void drawLowTemperatureForFirstDay(Pane thePane) {
 		
 		Circle theCircle = new Circle();
+		theCircle.setFill(Color.BLUE);
 		
 		theCircle.setRadius(5);
 		theCircle.layoutXProperty().bind(this.theXAxis.endXProperty().divide(3).add(this.theXAxis.getLayoutX()));
 		theCircle.layoutYProperty().bind(this.theYAxis.startYProperty().add(this.theYAxis.getStartY()));
 		
-		theCircle.setTranslateY(-15 - (this.getTemperatureAndHeightRatio()));
-
-		System.out.println(this.theYAxis.startYProperty().add(this.theYAxis.getStartY()));
+		theCircle.setTranslateY(-15 - this.getTemperatureAndHeightRatio(this.theChartData.getTheFirstDayLowTemperature()) * this.theXAxis.getEndY());
 		
 		thePane.getChildren().add(theCircle);
+	}
+	
+	private void drawHighTemperatureForFirstDay(Pane thePane) {
+		
+		Circle theCircle = new Circle();
+		theCircle.setFill(Color.RED);
+		
+		theCircle.setRadius(5);
+		theCircle.layoutXProperty().bind(this.theXAxis.endXProperty().divide(3).add(this.theXAxis.getLayoutX()));
+		theCircle.layoutYProperty().bind(this.theYAxis.startYProperty().add(this.theYAxis.getStartY()));
+		
+		theCircle.setTranslateY(15 - this.getTemperatureAndHeightRatio(this.theChartData.getTheFirstDayHighTemperature()) * this.theXAxis.getEndY());
+		
+		thePane.getChildren().add(theCircle);
+	}
+	
+	private void drawLowTemperatureForSecondDay(Pane thePane) {
+		
+		Circle theCircle = new Circle();
+		theCircle.setFill(Color.BLUE);
+		
+		theCircle.setRadius(5);
+		theCircle.layoutXProperty().bind(this.theXAxis.endXProperty().divide(5).multiply(3).add(this.theXAxis.getLayoutX()));
+		theCircle.layoutYProperty().bind(this.theYAxis.startYProperty().add(this.theYAxis.getStartY()));
+		
+		theCircle.setTranslateY(-15 - (this.getTemperatureAndHeightRatio(this.theChartData.getTheSecondDayLowTemperature()) * this.theXAxis.getEndY()));
+		
+		thePane.getChildren().add(theCircle);
+	}
+	
+	private void drawHighTemperatureForSecondDay(Pane thePane) {
+		
+		Circle theCircle = new Circle();
+		theCircle.setFill(Color.RED);
+		
+		theCircle.setRadius(5);
+		theCircle.layoutXProperty().bind(this.theXAxis.endXProperty().divide(5).multiply(3).add(this.theXAxis.getLayoutX()));
+		theCircle.layoutYProperty().bind(this.theYAxis.startYProperty().add(this.theYAxis.getStartY()));
+		
+		System.out.println(theCircle.getLayoutY());
+		
+		theCircle.setTranslateY((15 - this.getTemperatureAndHeightRatio(this.theChartData.getTheSecondDayHighTemperature()) * this.theXAxis.getEndY()));
+		
+		thePane.getChildren().add(theCircle);
+	}
+	
+	private void drawLowTemperatureForThirdDay(Pane thePane) {
+		
+		Circle theCircle = new Circle();
+		theCircle.setFill(Color.BLUE);
+		
+		theCircle.setRadius(5);
+		theCircle.layoutXProperty().bind(this.theXAxis.endXProperty().divide(6).multiply(5).add(this.theXAxis.getLayoutX()));
+		theCircle.layoutYProperty().bind(this.theYAxis.startYProperty().add(this.theYAxis.getStartY()));
+		
+		theCircle.setTranslateY(-15 - (this.getTemperatureAndHeightRatio(this.theChartData.getTheThirdDayLowTemperature()) * this.theXAxis.getEndY()));
+		
+		thePane.getChildren().add(theCircle);
+	}
+	
+	private void drawHighTemperatureForThirdDay(Pane thePane) {
+		
+		Circle theCircle = new Circle();
+		theCircle.setFill(Color.RED);
+		
+		theCircle.setRadius(5);
+		theCircle.layoutXProperty().bind(this.theXAxis.endXProperty().divide(6).multiply(5).add(this.theXAxis.getLayoutX()));
+		theCircle.layoutYProperty().bind(this.theYAxis.startYProperty().add(this.theYAxis.getStartY()));
+		
+		theCircle.setTranslateY((15 - this.getTemperatureAndHeightRatio(this.theChartData.getTheThirdDayHighTemperature()) * this.theXAxis.getEndY()));
+		
+		thePane.getChildren().add(theCircle);
+	}
+	
+	private void drawAverageHighTemperature(Pane thePane) {
+		
+		Line theLine = new Line();
+		
+		this.theXAxis.endYProperty().bind(thePane.heightProperty().subtract(60));
+		this.theXAxis.startYProperty().bind(thePane.heightProperty().subtract(60));
+		this.theXAxis.endXProperty().bind(thePane.widthProperty());
+		this.theXAxis.setStartX(60);
+		
+		this.theXAxis.setTranslateX(this.theChartData.getTheWeatherData().getTheAverageHighTemperature());
+		
+		thePane.getChildren().add(theLine);
+		
 	}
 	
 	private String formatDouble(double theDoubleToConvert) {
@@ -264,9 +357,9 @@ public class DrawChart extends Pane {
 		
 	}
 	
-	private double getTemperatureAndHeightRatio() {
+	private double getTemperatureAndHeightRatio(double theCurrentTemperature) {
 
-		return ((this.theYAxis.getEndY() + this.theYAxis.getEndY()) / (this.theChartData.getTheHighestTemperature() + this.theChartData.getTheLowestTemperature()));
+		return (theCurrentTemperature - this.theChartData.getTheLowestTemperature()) / (this.theChartData.getTheHighestTemperature() - this.theChartData.getTheLowestTemperature());
 		
 	}
 	
