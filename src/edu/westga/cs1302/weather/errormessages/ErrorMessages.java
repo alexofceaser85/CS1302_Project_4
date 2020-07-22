@@ -47,4 +47,5 @@ public class ErrorMessages {
 	public static final String ARRAY_OUT_OF_BOUNDS_FILE_SELECTED_CONTENT_TEXT = "The format to parse this file is not valid";	
 	public static final String CANNOT_SAVE_FILE_TITLE = "Cannot Save The File";
 	public static final String CANNOT_SAVE_A_FILE_BEFORE_IT_IS_OPENED_CONTENT_TEXT = "Cannot save a file that was never opened, please open a file first";
+	public static final String CANNOT_READ_THE_FILE = "Cannot Read The File, Please Check That It Is The Correct Format";
 }

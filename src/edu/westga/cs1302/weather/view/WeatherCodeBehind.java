@@ -3,6 +3,7 @@ package edu.westga.cs1302.weather.view;
 import java.io.File;
 
 import java.nio.file.Paths;
+import java.util.NoSuchElementException;
 
 import edu.westga.cs1302.weather.errormessages.ErrorMessages;
 import javafx.fxml.FXML;
@@ -109,6 +110,10 @@ public class WeatherCodeBehind extends Pane {
 		} catch (IllegalArgumentException theIllegalArgumentException) {
 			Alert theAlert = new Alert(AlertType.ERROR);
 			theAlert.setContentText(theIllegalArgumentException.getMessage());
+			theAlert.showAndWait();
+		} catch (NoSuchElementException theNoSuchElementException) {
+			Alert theAlert = new Alert(AlertType.ERROR);
+			theAlert.setContentText(ErrorMessages.CANNOT_READ_THE_FILE);
 			theAlert.showAndWait();
 		}
 
